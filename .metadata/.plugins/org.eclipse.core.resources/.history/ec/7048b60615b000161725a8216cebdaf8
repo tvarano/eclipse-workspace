@@ -1,0 +1,71 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Timer;
+
+//Thomas Varano
+//[Program Descripion]
+//Nov 19, 2016
+public class SpaceBullet implements ActionListener
+{
+   public int x;
+   public int y;
+   private String performed;
+   
+   public SpaceBullet(int x,int y){
+      this.x = x;
+      this.y = y;
+   }
+   public SpaceBullet(int x,int y, int width, int height){
+      this.x = x;
+      this.y = y;
+   }
+   
+   public SpaceBullet()
+   {
+      x = 0;
+      y = 0;
+   }
+   
+//FIXME timertasks help
+   public int fireBullet(){
+      int y = this.y;
+      Timer bulletpacer = new Timer(100, performed);
+      return y;
+   }
+   
+   public boolean checkIfOffPage(int width, int height){
+      boolean onpage;
+      if (x < width && y < height)
+         onpage = true;
+      else
+         onpage = false;
+         return onpage;
+   }
+
+   public int getX()
+   {
+      return x;
+   }
+
+
+
+   public void setX(int x)
+   {
+      this.x = x;
+   }
+
+
+   public void setY(int y)
+   {
+      this.y = y;
+   }
+
+  @Override
+  public void actionPerformed(ActionEvent e)
+  {
+     performed = (e.getActionCommand());
+     y -= 5;
+     
+  }
+}

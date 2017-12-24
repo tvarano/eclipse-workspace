@@ -1,0 +1,26 @@
+//Thomas Varano
+//[Program Descripion]
+//Nov 27, 2017
+
+package december.pictureLab;
+
+public class Picture
+{
+   private Pixel[][] pixels;
+   
+   public Picture(Pixel[][] p) {
+      this.pixels = p;
+   }
+   
+   public static Picture readImage(Image i) {
+      
+   }
+   
+   public void setPixels(Pixel[][] pixels) {
+      this.pixels = pixels;
+   }
+   
+   public Pixel[][] getPixels() {
+      
+   }
+}

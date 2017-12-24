@@ -1,0 +1,31 @@
+//Thomas Varano
+//[Program Descripion]
+//Nov 27, 2017
+
+package december.pictureLab;
+
+import java.awt.image.BufferedImage;
+
+public class Picture
+{
+   private Pixel[][] pixels;
+   
+   public Picture(Pixel[][] p) {
+      this.pixels = p;
+   }
+   
+   public Picture(BufferedImage i) {
+      pixels = new Pixel[i.getHeight()][i.getWidth()];
+      for (int r = 0; r < pixels.length; r++)
+         for (int c = 0; c < pixels[r].length; c++)
+            pixels[r][c] = new Pixel(i.getRGB(c, r));
+   }
+   
+   public void setPixels(Pixel[][] pixels) {
+      this.pixels = pixels;
+   }
+   
+   public Pixel[][] getPixels() {
+      return pixels;
+   }
+}

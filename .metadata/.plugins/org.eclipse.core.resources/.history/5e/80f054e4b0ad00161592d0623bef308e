@@ -1,0 +1,172 @@
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+//Thomas Varano
+//[Program Descripion]
+//Nov 17, 2016
+public class SpaceInvadersOne extends JPanel implements MouseMotionListener, MouseListener, KeyListener
+{
+   private static int tankx = 50;
+   private static int aliensx = 900;
+   private static int aliensy;
+   public static boolean alienshot; 
+   
+   public SpaceInvadersOne()
+   {   
+      this.setBackground(Color.BLACK);  //sets background
+      this.addMouseListener(this);
+      this.addMouseMotionListener(this);
+      JTextField typingArea = new JTextField(1000);
+      typingArea.addKeyListener(this);        }
+   
+   public void paintComponent(Graphics g)
+   {
+
+      super.paintComponent(g);
+      Graphics2D g2 = (Graphics2D) g;
+      g2.setStroke(new BasicStroke(15));   //stroke size
+      g2.setColor(Color.GREEN);
+      g2.fillRect(tankx, getHeight()-80, 80, 40);
+      g2.fillRect(tankx+30, getHeight()-110, 20, 30);
+   }
+   
+   
+   public Dimension getPreferredSize(){
+      return new Dimension(1000, 800); //change to size
+   }
+   public static void main(String[] args)
+   {
+      SpaceInvadersOne panel = new SpaceInvadersOne();
+      JFrame frame = new JFrame("Space Invaders");
+      frame.getContentPane().add(panel);
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      frame.pack();
+      frame.setLocationRelativeTo(null);
+      frame.setVisible(true);
+   }
+
+   public static double alienx(int x){
+//      long millis = System.currentTimeMillis();
+//      long difmillis = millis - System.currentTimeMillis();
+   while (true){
+      while (aliensx < 1030){
+         x = x + 30;
+            try
+            {
+               Thread.sleep(1000);
+            } catch (InterruptedException e)
+            {
+               e.printStackTrace();
+            }
+            return x;
+            if ()
+      }
+       while (x > 770){
+         x = x - 30;
+           try
+           {
+              Thread.sleep(1000);
+           } catch (InterruptedException e)
+           {
+              e.printStackTrace();
+           }
+           return x;
+       }
+           
+   }
+   }
+   
+   @Override
+   public void mouseClicked(MouseEvent e)
+   {
+      System.out.println("click");
+   }
+
+   @Override
+   public void mousePressed(MouseEvent e)
+   {
+   }
+
+   @Override
+   public void mouseReleased(MouseEvent e)
+   {
+   }
+
+   @Override
+   public void mouseEntered(MouseEvent e)
+   {
+   }
+
+   @Override
+   public void mouseExited(MouseEvent e)
+   {
+   }
+
+   @Override
+   public void mouseDragged(MouseEvent e)
+   {
+   }
+
+   @Override
+   public void mouseMoved(MouseEvent e)
+   {
+     
+      if (e.getX() != tankx){
+       if (tankx < e.getX()){
+       tankx = tankx+5;
+              try
+         {
+            Thread.sleep(300);
+         } catch (InterruptedException e1)
+         {
+            e1.printStackTrace();
+         }
+             } 
+       repaint();
+      }
+      if (tankx > e.getX()){
+         tankx = tankx-5;
+         try
+             {
+                Thread.sleep(300);
+             } catch (InterruptedException e1)
+             {
+                e1.printStackTrace();
+             }
+                 
+        repaint();}
+      }
+      
+    
+   
+
+   @Override
+   public void keyTyped(KeyEvent e)
+   {
+      System.out.println("type");
+   }
+
+   @Override
+   public void keyPressed(KeyEvent e)
+   {
+      System.out.println("keypress"+e.getKeyCode());
+   }
+
+   @Override
+   public void keyReleased(KeyEvent e)
+   {
+      System.out.println("releasekey");
+   }
+}

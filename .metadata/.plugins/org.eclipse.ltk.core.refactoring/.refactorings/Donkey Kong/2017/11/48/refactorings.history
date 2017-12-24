@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;anotherSheet.png&apos; to &apos;HelloWorldxAP/src/december.pictureLab&apos;&#x0A;- Original project: &apos;Donkey Kong&apos;&#x0A;- Destination element: &apos;HelloWorldxAP/src/december.pictureLab&apos;&#x0A;- Original element: &apos;anotherSheet.png&apos;&#x0A;- Update references to refactored element" description="Move file" destination="=HelloWorldxAP/src&lt;december.pictureLab" element1="src/anotherSheet.png" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1511875633379" units="0" version="1.0"/>
+</session>

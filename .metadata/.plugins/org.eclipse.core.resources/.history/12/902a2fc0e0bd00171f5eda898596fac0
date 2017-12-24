@@ -1,0 +1,133 @@
+package constants;
+
+import java.awt.Dimension;
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+import information.ClassPeriod;
+import managers.Main;
+
+//Thomas Varano
+//[Program Descripion]
+//Oct 24, 2017
+
+public enum ErrorID {
+   IO_ERROR(),
+   NULL_POINT(),
+   
+   
+   SCHEDULE_NULL(), 
+   FILE_TAMPER(
+         "There was an error with reading your schedule.\n"
+               + "It has been reset to the default",
+         false), INPUT_ERROR(
+               "Input Error. Make sure all fields are filled correctly",
+               true), 
+   OTHER();
+
+   public static final String ERROR_NAME = Main.APP_NAME + " ERROR";
+   private final String ID;
+   private final String message;
+   private final boolean userError;
+
+   private ErrorID(String message, boolean userError) {
+      this.ID = Integer.toHexString((this.ordinal() + 1) * 10000);
+      this.message = message;
+      this.userError = userError;
+   }
+
+   private ErrorID() {
+      this("Internal Error", false);
+   }
+
+   public String getID() {
+      return ID;
+   }
+
+   public static void showUserError(ErrorID error, boolean recover) {
+      int choice = showInitialMessage(JOptionPane.WARNING_MESSAGE);
+      if (choice == 0)
+         JOptionPane.showMessageDialog(null,
+               "Details:\n" + error.message + "\nErrorID: " + error.getID(),
+               ERROR_NAME, JOptionPane.WARNING_MESSAGE);
+
+      if (!recover)
+         System.exit(0);
+   }
+   
+   private static int showInitialMessage(int messageType) {
+      return JOptionPane.showOptionDialog(null,
+            "An error has occurred.\nClick \"Info\" for more information.",
+            ERROR_NAME, JOptionPane.OK_CANCEL_OPTION, messageType,
+            null, new String[]{"Info", "Close"}, "Close");
+   }
+
+   public static void showGeneral(Throwable e, String ID) {
+      int choice = showInitialMessage(JOptionPane.ERROR_MESSAGE);
+      if (choice == 0) {
+         String message = (e.getMessage() == null) ? "Internal Error" : e.getMessage();
+         JOptionPane.showMessageDialog(null,
+               "Details:\n" + message + "\nErrorID: " + ID,
+               ERROR_NAME, JOptionPane.ERROR_MESSAGE);
+      }
+   }
+
+   public static void showError(Throwable e, boolean recover) {
+      String ID = e.getStackTrace()[0].getClassName() + ":" + e.getStackTrace()[0].getLineNumber() + 
+            ">" + getType(e).getID();
+      showGeneral(e, ID);
+      if (!recover)
+         System.exit(0);
+   }
+   
+   private static ErrorID getType(Throwable e) {
+      return NULL_POINT;
+   }
+   
+   public static ErrorID getError(String ID) {
+      for (ErrorID e : values())
+         if (e.getID().equals(ID))
+            return e;
+      return null;
+   }
+   
+   
+   private static class ErrorDetailPane extends JFrame {
+      private String ID, message; 
+      private JPanel pane;
+      
+      public ErrorDetailPane(String message, String ID) {
+         super(ERROR_NAME);
+         this.message = message; this.ID = ID;
+         pane = new JPanel();
+         pane.setLayout(new GridLayout(2,1));
+         getContentPane(add(pane));
+         addComponents();
+      }
+      
+      private void addComponents() {
+         pane.add(new JLabel("Details: "+message));
+         pane.add(new JLabel("INFO: "+ ID));
+      }
+      
+      public Dimension getPreferredSize() {
+         return new Dimension(200,200);
+      }
+   }
+   
+
+   public static void main(String[] args) {
+      ClassPeriod c = null;
+      try {
+         c.getName();
+      } catch (NullPointerException e1) {
+         e1.printStackTrace();
+         System.out.println(e1.getStackTrace()[0].getLineNumber());
+         showError(e1, false);
+      }
+   }
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;Point.label&apos; in &apos;Point&apos;&#x0A;- Original project: &apos;ObjectThings&apos;&#x0A;- Original element: &apos;Point.label&apos;&#x0A;- Getter method name: &apos;getLabel&apos;&#x0A;- Setter method name: &apos;setLabel&apos;&#x0A;- Field visibility: &apos;public&apos;&#x0A;- Do not use getter and setter methods in declaring type" comments="false" declaring="false" description="Encapsulate field &apos;label&apos;" flags="589830" getter="getLabel" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;{Point.java[Point^label" insertion="5" setter="setLabel" stamp="1479395947932" version="1.0" visibility="1"/>
+</session>

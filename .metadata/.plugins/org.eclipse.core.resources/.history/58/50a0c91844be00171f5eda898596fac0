@@ -1,0 +1,55 @@
+//Thomas Varano
+//[Program Descripion]
+//Oct 31, 2017
+
+package information;
+
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.IOException;
+
+public class ErrorTransfer implements Transferable
+{
+   private String text;
+   private Throwable throwObject;
+   private String printMessage;
+   
+   public ErrorTransfer(String s, Throwable e) {
+      setText(s);
+      setThrowObject(e);
+      printMessage = text + "\n" + 
+      
+   }
+
+   public String getText() {
+      return text;
+   }
+   public void setText(String text) {
+      this.text = text;
+   }
+   public Throwable getThrowObject() {
+      return throwObject;
+   }
+   public void setThrowObject(Throwable throwObject) {
+      this.throwObject = throwObject;
+   }
+
+   @Override
+   public DataFlavor[] getTransferDataFlavors() {
+      return new DataFlavor[] {DataFlavor.stringFlavor};
+   }
+
+   @Override
+   public boolean isDataFlavorSupported(DataFlavor flavor) {
+      return (flavor == DataFlavor.stringFlavor);
+   }
+
+   @Override
+   public Object getTransferData(DataFlavor flavor)
+         throws UnsupportedFlavorException, IOException {
+      if (flavor.equals(DataFlavor.stringFlavor))
+         return text;
+      return null;
+   }
+}

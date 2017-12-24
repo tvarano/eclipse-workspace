@@ -1,0 +1,301 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.AbstractButton;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+
+//Thomas Varano
+//Aug 31, 2017
+
+public class ScheduleInput extends JPanel implements ActionListener
+{
+   private static final long serialVersionUID = 1L;
+   public static final int INIT_AMT_CL = 7;
+   private ArrayList<Lab> labs = new ArrayList<Lab>();
+   private ArrayList<ClassInputSlot> slots = new ArrayList<ClassInputSlot>();
+   private PanelManager parentManager;
+   private boolean hasZeroPeriod, hasManager, debug;
+   private int amtClasses;
+   private Schedule beginningSchedule;
+   
+   public ScheduleInput(PanelManager parentManager) {
+      debug = false;
+      setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+      this.parentManager = parentManager;
+      hasManager = (parentManager != null);
+      init(INIT_AMT_CL);
+      requestFocus();
+   }
+   
+   public void init(int amtSlots) {
+      if (debug)
+         System.out.println("INPUTFRAME construted empty");
+      add(new ToolBar(true, this));
+      initSlots(amtSlots);
+      amtClasses = amtSlots;
+      add(createBottomPanel());
+      JTextField disclaimer = new JTextField(); disclaimer.setText(PanelManager.disclaimer.getText());
+      disclaimer.setEditable(false); disclaimer.setVisible(true);
+      System.out.println("DIS"+disclaimer);
+      add(disclaimer);
+   }
+   
+   public void init(ClassPeriod[] classes, Lab[] sLabs) {
+      if (debug)
+         System.out.println("INPUTFRAME constructed with classes");
+      add(new ToolBar(true, this));
+      amtClasses = classes.length;
+      if (sLabs != null && sLabs.length != 0)
+         initSlots(classes, sLabs);
+      else
+         initSlots(classes);
+      add(createBottomPanel());
+   }
+   
+   public void addLab(int slot) {
+      if (debug)
+         System.out.println("input adding lab " + slot);
+      labs.add(Lab.toLabFromClassSlot(slot));
+   }
+   
+   public void removeLab(int slot) {
+      if (debug)
+         System.out.println("input removing lab "+slot);
+      labs.remove(Lab.toLabFromClassSlot(slot));
+   }
+   
+   private void addSlot(int slotIndex) {
+      ClassInputSlot s = new ClassInputSlot(slotIndex, this);
+      int addIndex = (hasZeroPeriod) ? slotIndex + 1 : slotIndex;
+      slots.add(addIndex - 1, s);
+      addImpl(s, null, addIndex);
+   }
+   
+   private void addSlot(ClassPeriod c) {
+      System.out.println("INPUT added "+c.getInfo());
+      slots.add(new ClassInputSlot(c, this));
+      add(slots.get(slots.size()-1));
+   }
+   
+   private JPanel createBottomPanel() {
+      JPanel p = new JPanel();
+      p.setLayout(new GridLayout(1,2));
+      Cursor hand = new Cursor(Cursor.HAND_CURSOR);
+      JButton button = new JButton("Cancel");
+      button.setActionCommand("cancel");
+      button.setCursor(hand);
+      button.setToolTipText("Exit Without Saving");
+      button.addActionListener(this);
+      p.add(button);
+      
+      button = new JButton("Submit");
+      button.setToolTipText("Save Your Schedule");
+      button.setCursor(hand);
+      button.setActionCommand("submit");
+      button.addActionListener(this);
+      button.setBorder(BorderFactory.createEtchedBorder(Color.CYAN, Color.BLUE));
+      p.add(button);
+      return p;
+   }
+   
+   private void initSlots(ClassPeriod[] cp) {
+      for (ClassPeriod c : cp) {
+         if (c.getSlot() == 0) {
+            hasZeroPeriod = true;
+            setButtonEnabled(ToolBar.ZERO_BUTTON, false);
+            if (debug)
+               System.out.println("INPUT HAS ZERO PERIOD");
+         }
+         else if (c.getSlot() == 8) {
+            setButtonEnabled(ToolBar.EIGHT_BUTTON, false);
+         }
+         if (c.getSlot() != ClassPeriod.LUNCH)
+            addSlot(c);
+         else
+            amtClasses--;
+      }
+   }
+   
+   private void initSlots(ClassPeriod[] cp, Lab[] labs) {
+      initSlots(cp);
+      for (Lab l : labs) {
+         for (ClassInputSlot c : slots) {
+            if (l.getClassSlot() == c.getSlotNumber()) {
+               c.setLab(true);
+               if (debug)
+                  System.out.println("lab "+l.getClassSlot() + "set to "+c);
+            }
+         }
+      }
+   }
+   
+   private void initSlots(int amtSlots) {
+      int i = (hasZeroPeriod) ? 0 : 1;
+      for (; i <= amtSlots; i++) {
+         addSlot(i);
+      }
+   }
+   
+   public void addClass(int slot) {
+      if (amtClasses == 9) {
+         if (debug)
+            System.out.println("too many classes");
+         return;
+      }
+      if (slot == 0) {
+         hasZeroPeriod = true;
+         setButtonEnabled(ToolBar.ZERO_BUTTON, false);
+      }
+      else if (slot == 8)
+         setButtonEnabled(ToolBar.EIGHT_BUTTON, false);
+      addSlot(slot);
+      revalidate();
+      amtClasses++;     
+   }
+   
+   public void removeClassAndReOrder(int slot, Component c) {
+      removeClassInt(slot);
+      removeAndReOrder(c);
+   }
+   
+   private void setButtonEnabled(int indexInBar, boolean enabled) {
+      ((JButton) ((ToolBar) getComponent(0))
+            .getComponent(indexInBar)).setEnabled(enabled);
+   }
+   
+   public void removeClassInt(int slot) {
+      amtClasses--;
+      if (slot == 0) {
+         hasZeroPeriod = false;
+         setButtonEnabled(ToolBar.ZERO_BUTTON, true);
+      }
+      else if (slot == 8)
+         setButtonEnabled(ToolBar.EIGHT_BUTTON, true);
+   }
+   
+   private void cannotCreate(int index) {
+      if (debug)
+         System.out.println(index+"cannotCreate");
+      if (getComponents()[index] instanceof ClassInputSlot)
+         ((ClassInputSlot) getComponents()[index]).showError();
+   }
+   //TODO
+   public void reWriteSlotsArray() {
+      slots.removeAll(slots);
+      Component[] c = getComponents();
+      
+      for (int i = 0; i < c.length; i++) {
+         if (c[i] instanceof ClassInputSlot) {
+            slots.add((ClassInputSlot) c[i]);
+         }
+      }
+   }
+   
+   private void save() {
+      SchedWriter writer = new SchedWriter();
+      Component[] c = getComponents();
+      
+      ClassPeriod[] classes = new ClassPeriod[amtClasses+1]; 
+      int classIndex = 0;
+      for (int i = 0; i < c.length; i++) {
+         if (c[i] instanceof ClassInputSlot) {
+            if (!((ClassInputSlot) c[i]).canCreate()) {
+               cannotCreate(i);
+               return;
+            }
+            classes[classIndex] = ((ClassInputSlot) c[i]).createClass();
+            
+            if (classes[classIndex].getSlot() == 4) {
+               if (debug)
+                  System.out.println("filling lunch");
+               classIndex++;
+               classes[classIndex] = Rotation.R1.get("Lunch");
+            }
+            classIndex++;
+         }
+      }
+      // just to print
+      if (debug) {
+         for (int i = 0; i < classes.length; i++) 
+            System.out.println("clInput " +i+":" + classes[i]);
+      }
+      
+      
+      Schedule s = new Schedule(classes, labs.toArray(new Lab[labs.size()]));
+      if (debug)
+         System.out.println(s.getClasses()[0]);
+      writer.writeSchedule(s);
+      if (debug)
+         System.out.println("wrote" + s);
+   }
+   
+   public void close() {
+      if (hasManager)
+         parentManager.finishInputting();
+      else 
+         ((JFrame)getParent().getParent().getParent().getParent()).dispose();
+   }
+   
+   public void saveAndClose() {
+      save();
+      close();
+   }
+   
+   //TODO resizing
+   public void removeAndReOrder(Component c) {
+      remove(c);
+      slots.remove(c);
+      for (Component a : getComponents())
+         a.repaint();
+      setSize(getSize());
+      revalidate();
+   }
+   
+   public Schedule getBeginningSchedule() {
+      return beginningSchedule;
+   }
+   public void setBeginningSchedule(Schedule s) {
+      this.beginningSchedule = s;
+      removeAll();
+      init(s.getClasses(), s.getLabSlots());
+   }
+   
+   private static void createAndShowGUI() {
+      JFrame frame = new JFrame("INFO SLOT TEST");
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      ScheduleInput s = new ScheduleInput(null);
+      s.setBeginningSchedule(new Schedule(Rotation.R1.getTimes(), Lab.LAB1));
+      frame.getContentPane().add(s);
+      frame.pack();
+      frame.setLocationRelativeTo(null);
+      frame.setVisible(true);   
+   }
+   public static void main(String[] args) {
+      SwingUtilities.invokeLater(new Runnable() {
+         public void run() {
+            createAndShowGUI();
+         }
+      });
+   }
+
+   @Override
+   public void actionPerformed(ActionEvent e) {
+      if (((AbstractButton) e.getSource()).getActionCommand().equals("submit"))
+         saveAndClose();
+      else if (((AbstractButton) e.getSource()).getActionCommand().equals("cancel"))
+         close();
+   }
+   
+}

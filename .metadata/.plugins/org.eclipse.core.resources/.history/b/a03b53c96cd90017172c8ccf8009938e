@@ -1,0 +1,92 @@
+//Thomas Varano
+//[Program Descripion]
+//Dec 4, 2017
+
+package test;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Iterator;
+
+import com.sun.tools.internal.xjc.model.Model;
+
+import net.fortuna.ical4j.data.CalendarBuilder;
+import net.fortuna.ical4j.data.ParserException;
+import net.fortuna.ical4j.model.Calendar;
+import net.fortuna.ical4j.model.Component;
+import net.fortuna.ical4j.model.DateTime;
+import net.fortuna.ical4j.model.Period;
+import net.fortuna.ical4j.model.PeriodList;
+
+public class CalendarOpen
+{
+   private static final SimpleDateFormat SDF = new SimpleDateFormat("yyyyMMdd");
+
+   public static void read() {
+      // Reading the file and creating the calendar
+      CalendarBuilder builder = new CalendarBuilder();
+      Calendar cal = null;
+      try {
+         cal = builder.build(new FileInputStream("my.ics"));
+      } catch (IOException e) {
+         e.printStackTrace();
+      } catch (ParserException e) {
+         e.printStackTrace();
+      }
+
+      // Create the date range which is desired.
+      DateTime to = null;
+      DateTime from = null;
+      try {
+         to = new DateTime("20100201T070000Z");
+         from = new DateTime("20100101T070000Z");
+      } catch (ParseException e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      };
+      Period period = new Period(from, to);
+
+      // For each VEVENT in the ICS
+      for (Object o : cal.getComponents("VEVENT")) {
+         Component c = (Component) o;
+         PeriodList list = c.calculateRecurrenceSet(period);
+
+         for (Object po : list) {
+            System.out.println((Period) po);
+         }
+      }
+   }
+   
+   private void loadIcs() {
+       Model eventModel = new DefaultScheduleModel();
+       CalendarBuilder builder = new CalendarBuilder();
+
+       try {
+           net.fortuna.ical4j.model.Calendar calendar = builder.build(this.getClass().getResourceAsStream("canada.ics"));
+
+           for (Iterator i = calendar.getComponents().iterator(); i.hasNext();) {
+               Component component = (Component) i.next();
+               //new event
+               Date start = SDF.parse(component.getProperty("DTSTART").getValue());
+               Date end = SDF.parse(component.getProperty("DTEND").getValue());
+               String summary = component.getProperty("SUMMARY").getValue();
+
+               eventModel.addEvent(new DefaultScheduleEvent(summary,
+               start, end));
+
+               System.out.println("added "+start+end+summary);
+
+           }
+       } catch (IOException e) {
+           e.printStackTrace();
+       } catch (ParserException e) {
+           e.printStackTrace();
+       } catch (ParseException e) {
+           e.printStackTrace();
+       }
+
+   }
+}

@@ -1,0 +1,12 @@
+1512524964263	Delete element
+1512604269983	Encapsulate field 'memo'
+1512608351987	Encapsulate field 'lunch'
+1512696194989	Encapsulate field 'events'
+1512696215812	Encapsulate field 'dates'
+1512782684948	Rename type 'SouthernCurrentClassPane'
+1512782700465	Rename type 'NorthernCurrentClassPane'
+1512792954114	Rename field 'westList'
+1512793905971	Delete element
+1512793910317	Delete element
+1512852516759	Rename field 'westPane'
+1512852526442	Rename field 'eastPane'

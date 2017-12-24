@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+//Thomas Varano
+//[Program Descripion]
+//Oct 10, 2017
+
+public class GuessMyNumber
+{
+   do {
+      Scanner s = new Scanner(System.in);
+      int totalTries = 10; boolean win = false; 
+      String target = (int)(Math.random()*10+1)+"";
+      String guess = ""; 
+      for (int amtTries = 0; amtTries < totalTries && !guess.equals(target); amtTries++) {
+         System.out.println("guess now");
+         guess = s.nextLine();
+      }
+      System.out.println("gameOver. correct");
+   } while (playAgain.equals("Y"));
+}

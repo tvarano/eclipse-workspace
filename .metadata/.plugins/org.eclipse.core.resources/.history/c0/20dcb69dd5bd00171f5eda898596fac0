@@ -1,0 +1,12 @@
+package managers;
+
+//Thomas Varano
+public class TestClass {
+//oy vei
+	//edit new from eclipse
+   
+   public static void main(String[] args) {
+      Error e1 = new Error("This is the message that i am typing its probably this long at most");
+      System.out.println(e1.getMessage().hashCode());
+   }
+}

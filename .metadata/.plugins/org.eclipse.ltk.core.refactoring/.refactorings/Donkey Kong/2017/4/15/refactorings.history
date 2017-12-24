@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;KongMain&apos; to &apos;LevelOne&apos;&#x0A;- Original project: &apos;Donkey Kong&apos;&#x0A;- Original element: &apos;KongMain&apos;&#x0A;- Renamed element: &apos;LevelOne&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;KongMain&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{KongMain.java[KongMain" matchStrategy="1" name="LevelOne" qualified="false" references="true" similarDeclarations="false" stamp="1492295230126" textual="false" version="1.0"/>
+</session>

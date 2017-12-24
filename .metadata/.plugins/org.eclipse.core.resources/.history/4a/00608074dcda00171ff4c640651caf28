@@ -1,0 +1,37 @@
+//Thomas Varano
+//[Program Descripion]
+//Dec 6, 2017
+
+package display;
+
+import java.awt.Dimension;
+
+import javax.swing.JTextPane;
+
+import information.ClassPeriod;
+
+public class MemoPad extends JTextPane
+{
+   private static final long serialVersionUID = 1L;
+   private ClassPeriod parentClass;
+   private NorthernCurrentClassPane parentPanel;
+
+   public MemoPad(ClassPeriod parentClass, NorthernCurrentClassPane parentPanel) {
+      super();
+      setParentClass(parentClass); setParentPanel(parentPanel);
+      this.setMinimumSize(new Dimension(100,100));
+   }
+
+   public ClassPeriod getParentClass() {
+      return parentClass;
+   }
+   public void setParentClass(ClassPeriod parentClass) {
+      this.parentClass = parentClass;
+   }
+   public NorthernCurrentClassPane getParentPanel() {
+      return parentPanel;
+   }
+   public void setParentPanel(NorthernCurrentClassPane parentPanel) {
+      this.parentPanel = parentPanel;
+   }
+}

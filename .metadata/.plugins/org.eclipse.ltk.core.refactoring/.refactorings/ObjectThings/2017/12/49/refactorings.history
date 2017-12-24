@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 2 elements to &apos;HelloWorldMkTwo/src/(default package)&apos;&#x0A;- Original project: &apos;ObjectThings&apos;&#x0A;- Destination element: &apos;HelloWorldMkTwo/src/(default package)&apos;&#x0A;- Original elements:&#x0A;     Point.java&#x0A;     PointTester.java&#x0A;- Update references to refactored element" description="Move compilation units" destination="=HelloWorldMkTwo/src&lt;" element1="/src&lt;{Point.java" element2="/src&lt;{PointTester.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1512323678795" units="2" version="1.0"/>
+</session>

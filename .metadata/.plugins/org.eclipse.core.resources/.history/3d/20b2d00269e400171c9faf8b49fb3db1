@@ -1,0 +1,27 @@
+//Thomas Varano
+//[Program Descripion]
+//Dec 18, 2017
+
+package december;
+
+import java.awt.Desktop;
+import java.awt.desktop.AboutEvent;
+import java.awt.desktop.AboutHandler;
+
+import javax.swing.JOptionPane;
+
+public class Virus
+{
+   public static void main(String[] args) {
+      for (int i = 0; i < 10; i ++)
+         if (Desktop.isDesktopSupported()) {}
+            Desktop.getDesktop().setAboutHandler(new AboutHandler() {
+
+               @Override
+               public void handleAbout(AboutEvent arg0) {
+                  JOptionPane.showConfirmDialog(null, "THIS IS IT");
+               }
+               
+            });
+   }
+}

@@ -1,0 +1,19 @@
+//Thomas Varano
+//[Program Descripion]
+//Dec 6, 2017
+
+package display;
+
+import javax.swing.JTextPane;
+
+import information.ClassPeriod;
+
+public class MemoPad extends JTextPane
+{
+   
+   private static final long serialVersionUID = 1L;
+
+   public MemoPad(ClassPeriod parentClass, NorthernCurrentClassPane parentPanel) {
+      super();
+   }
+}

@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Test3
+{
+   public static void main(String[] args)
+   {
+//      System.out.println(3 + 4);
+//      System.out.println("3 + 4");
+//      System.out.println("3" + 4);
+//      System.out.println("3" + 4 + 5);
+//      System.out.println("The sum is " + (3 + 4));
+//      
+//      System.out.println(8/4);
+//      System.out.println(9/4);
+//      System.out.println(10/4);
+//      System.out.println(11/4);
+//      System.out.println(12/4);
+//      System.out.println(9.0/4);
+//      //truncate= take off the decimal
+//      
+//      
+//      
+//      //average
+//     System.out.print("Please enter a number: ");
+//     Scanner kbdInfoGetter = new Scanner(System.in);
+//     int x = kbdInfoGetter.nextInt();
+//     System.out.print("Please enter another number: ");
+//     int y = kbdInfoGetter.nextInt();
+//      
+//     System.out.println("The average of your numbers is " + (x + y) / 2.0 + ".");
+//     kbdInfoGetter.nextInt();
+//     //name
+//     System.out.print("Please enter your name: ");
+//     String name = kbdInfoGetter.nextLine();
+//     System.out.println("Hi, " + name);
+      
+      System.out.println(Math.log10(93920));
+      //NOTE
+         // finding the log10+1 finds how many digits there are so for example 93920
+         //has 5 digits and the log10 is 4.9 so you add 1 and get 5
+   }
+}

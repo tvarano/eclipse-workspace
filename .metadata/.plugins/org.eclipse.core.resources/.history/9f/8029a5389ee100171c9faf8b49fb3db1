@@ -1,0 +1,26 @@
+//Thomas Varano
+//[Program Descripion]
+//Dec 12, 2017
+
+package december;
+
+public final class BaseConverter
+{
+   private static final char[] BASE16 = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'}; 
+   public static String fromBase10(long in, int toBase) {
+      if (toBase <= 1)
+         return in + "";
+      String retval = "";
+      do {
+         int newAdd = (int)(in % toBase);
+         String addStr = BASE16[newAdd] + ""; 
+         in /= toBase;
+         retval = addStr + retval;
+      } while (in > 0);
+      return retval;
+   }
+
+   public static void main(String[] args) {
+      System.out.println(fromBase10(3213423343411L,16));
+   }
+}

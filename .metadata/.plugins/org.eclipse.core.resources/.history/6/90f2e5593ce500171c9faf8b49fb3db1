@@ -1,0 +1,80 @@
+//Thomas Varano
+
+package december;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ * ACSL contest #1
+ * @author Thomas Varano
+ *
+ */
+public class ACSLCards
+{
+   /*
+    * initialize card types
+    * player gets 5 cards and the remaining cards are placed face down on the pile
+    * an initial point total will be given
+    * each player puts down one card
+    * the player adds their value to the total and selects another card from the pile
+    * each card adds value
+    *    EXCEPT
+    *    9 is pass
+    *    T (ten) subtracts 10
+    *    7 adds either 1 or 7. adds 7 unless points will go over 100, then adds 1
+    *    crossing point borders 
+    *       33 - 34, 55 - 56, 77 - 78
+    *          in either direction
+    *       adds an additional 5 points
+    *             ASK IF YOU GO DOWN AND ADD AND THEN GO BACK UP DOES IT STILL COUNT
+    *    rules for playing cards
+    *       play the card that is the median point value of the 5 cards. 
+    *       
+    *       the game ends when the card played puts the point total over 99
+    */
+   
+   /*
+    * MY NOTES
+    * sort the hands, create a subclass called "card", has a compareTo
+    * 
+    * input 
+    *    player one cards, player 2 cards
+    *    starting points, then cards picked up
+    */
+   private static final Character[] cardValues = {'2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'};
+  
+   public static void main(String[] args) {
+      //read all data, store as string
+      Scanner in = new Scanner(System.in);
+         //first line, read and format
+      String rawData = in.nextLine();
+      StringBuilder p1Values = new StringBuilder();
+      StringBuilder p2Values = new StringBuilder();
+      final int handSize = 5;
+      Card[] p1 = new Card[handSize];
+      Card[] p2 = new Card[handSize];
+      int index = 0;      
+      //format strings
+      StringBuilder currentPlayer = p1Values;
+      for (int i = 0; i < handSize * 2; i ++) {
+         if (i == handSize)
+            currentPlayer = p2Values;
+         String addition = rawData.substring(index, rawData.indexOf(", ", index)) ;
+         currentPlayer.append(addition);
+         index += addition.length() + ", ".length();
+      }
+      
+   }
+   
+   private static class Card implements Comparable<Card>{
+      private char value;
+      public Card(char value) {
+         this.value = value;
+      }
+      @Override
+      public int compareTo(Card arg0) {
+         return Arrays.asList(cardValues).indexOf(value) - Arrays.asList(cardValues).indexOf(arg0.value);
+      }
+   }
+}

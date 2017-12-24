@@ -1,0 +1,89 @@
+//Thomas Varano
+//[Program Descripion]
+//Oct 31, 2017
+
+package information;
+
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.IOException;
+import java.io.Serializable;
+
+public class ErrorTransfer implements Transferable
+{
+   private String text;
+   private Throwable throwObject;
+   private String printMessage;
+   private DataFlavor flavor; 
+   private StringThrowBundle bundle;
+   
+   public ErrorTransfer(String s, Throwable e) {
+      setText(s);
+      setThrowObject(e);
+      bundle = new StringThrowBundle(s, e);
+      
+      flavor = new DataFlavor(StringThrowBundle.class, s);      
+   }
+
+   public String getText() {
+      return text;
+   }
+   public void setText(String text) {
+      this.text = text;
+   }
+   public Throwable getThrowObject() {
+      return throwObject;
+   }
+   public void setThrowObject(Throwable throwObject) {
+      this.throwObject = throwObject;
+   }
+
+   @Override
+   public DataFlavor[] getTransferDataFlavors() {
+      return new DataFlavor[] {DataFlavor.stringFlavor, flavor};
+   }
+
+   @Override
+   public boolean isDataFlavorSupported(DataFlavor flavor) {
+      if (flavor.equals(DataFlavor.stringFlavor))
+         return true;
+      if (flavor.equals(this.flavor))
+         return true;
+      return false;
+   }
+
+   @Override
+   public Object getTransferData(DataFlavor flavor)
+         throws UnsupportedFlavorException, IOException {
+      if (flavor.equals(DataFlavor.stringFlavor))
+         return text;
+      return null;
+   }
+   
+   public static class StringThrowBundle implements Serializable{
+      private String s;
+      private Throwable e;
+      public StringThrowBundle(String s, Throwable e) {
+         setString(s);
+         setThrowable(e);
+      }
+      
+      public Throwable getThrowable() {
+         return e;
+      }
+      public void setThrowable(Throwable e) {
+         this.e = e;
+      }
+      public String getString() {
+         return s;
+      }
+      public void setString(String s) {
+         this.s = s;
+      }
+      public String toString() {
+         e.printStackTrace();
+         return s + "\n";
+      }
+   }
+}

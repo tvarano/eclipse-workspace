@@ -1,0 +1,35 @@
+//Thomas Varano
+//[Program Descripion]
+//Nov 22, 2016
+public class PongBall
+{
+   private int x;
+   private int y;
+   private int momentum;
+   private boolean onscreen;
+   private boolean contact;
+   
+   public PongBall(int x, int y){
+      this.x = x;
+      this.y = y;
+   }
+   
+   private PongBall(int x, int y, int momentum){
+      this.x = x;
+      this.y = y;
+      this.momentum = momentum;  
+   }
+   
+   
+   
+   public boolean checkIfOffPage(int width, int height){
+      boolean onpage;
+      if (x < width && y < height)
+         onpage = true;
+      else
+         onpage = false;
+      onscreen = onpage;
+         return onscreen;
+   }
+
+}

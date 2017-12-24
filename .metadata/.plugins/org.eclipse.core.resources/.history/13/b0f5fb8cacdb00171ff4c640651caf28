@@ -1,0 +1,82 @@
+package december;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.ArrayList;
+
+import javax.swing.JEditorPane;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+
+public class URLReader {
+    public static void main(String[] args) throws Exception {
+
+        URL oracle = new URL("https://sites.google.com/pascack.k12.nj.us/agenda/home");
+        BufferedReader in = new BufferedReader(
+        new InputStreamReader(oracle.openStream()));
+        long start = System.currentTimeMillis();
+        StringBuilder b = new StringBuilder();
+        String inputLine;
+        while ((inputLine = in.readLine()) != null) {
+            System.out.println(inputLine);
+            b.append(inputLine);
+        }
+        in.close();
+        
+        ArrayList<String> events = new ArrayList<String>;
+        
+        String totalHtml = b.toString();
+        int eIndex = 0;
+        int first = 0;
+        boolean isFirst;
+        String key = "ltr;\">";
+        //do the events
+        do {
+           isFirst = (eIndex == 0);
+           eIndex = totalHtml.indexOf(key, eIndex);
+           if (isFirst)
+              first = eIndex;
+           String addition = (totalHtml.substring(eIndex + key.length(), totalHtml.indexOf(key, eIndex)));
+           eIndex += key.length() + addition.length()+10;
+           events.add(addition);
+        } while(eIndex < totalHtml.indexOf("/div", first) && eIndex != -1);
+        System.out.println("operation took " + (System.currentTimeMillis()-start));
+        
+        System.out.println("\n\n----------------------------------------");
+        System.out.println(events.toString());
+        
+        
+        ArrayList<String> dates = new ArrayList<String>();
+        int dIndex = eIndex;
+        key = "right;\">";
+        do {
+           isFirst = dIndex == 0;
+           dIndex = totalHtml.indexOf(key, dIndex);
+           if (isFirst)
+              first = dIndex;
+           String addition = (totalHtml.substring(dIndex + key.length(), totalHtml.indexOf(key, dIndex)));
+           eIndex += key.length() + addition.length()+10;
+           dates.add(addition);
+        } while (dIndex < totalHtml.indexOf("/div", first) && dIndex != -1);
+        
+        System.out.println("\n\n\n"+dates.toString());
+        
+      // try {
+      // createFrame(oracle);
+      // } catch (IOException e) {
+      // e.printStackTrace();
+      // }
+
+    }
+    
+    public static void createFrame(URL oracle) throws IOException {
+       JFrame f = new JFrame("oi");
+       //zfr3Q
+       f.getContentPane().add(new JScrollPane(new JEditorPane(oracle)));
+//       f.getContentPane().add(new JEditorPane("html","<iframe src=\"https://calendar.google.com/calendar/embed?showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=8368c5a91jog3s32oc6k22f4e8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=America%2FNew_York\" style=\"border-width:0\" width=\"800\" height=\"600\" frameborder=\"0\" scrolling=\"no\"></iframe>"));
+       f.pack();
+       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       f.setVisible(true);
+    }
+}

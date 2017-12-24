@@ -1,0 +1,10 @@
+# Agenda
+A scheduler program for Pascack Hills (with possible implementation in Pascack Valley). Given the template schedules are correct, the user will be able to determine where they should be in school, how much time is left in their current activity, and their schedule for the day. They can take notes and keep their assignments in order for each class. 
+
+Upcoming features include: 
+GPA Calculation
+file modulation
+	possible text edit
+more streamlined memo page
+Self service support
+Mobile support

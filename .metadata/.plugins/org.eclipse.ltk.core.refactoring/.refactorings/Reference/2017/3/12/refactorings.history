@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;Command.stringParam&apos; in &apos;Command&apos;&#x0A;- Original project: &apos;Reference&apos;&#x0A;- Original element: &apos;Command.stringParam&apos;&#x0A;- Getter method name: &apos;getStringParam&apos;&#x0A;- Setter method name: &apos;setStringParam&apos;&#x0A;- Field visibility: &apos;public&apos;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;stringParam&apos;" flags="589830" getter="getStringParam" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;{Command.java[Command^stringParam" insertion="20" setter="setStringParam" stamp="1489965696282" version="1.0" visibility="1"/>
+</session>

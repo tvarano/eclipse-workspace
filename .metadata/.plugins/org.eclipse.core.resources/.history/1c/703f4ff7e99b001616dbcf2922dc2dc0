@@ -1,0 +1,105 @@
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+//Thomas Varano
+//[Program Descripion]
+//Oct 26, 2016
+public class JFrameDrawing extends JPanel implements MouseListener,MouseMotionListener
+{
+   
+   public JFrameDrawing()
+   {
+      this.setBackground(Color.WHITE);
+      this.addMouseListener(this); 
+      this.addMouseMotionListener(this);
+   }
+   public void paintComponent(Graphics g)
+   {
+      super.paintComponent(g);
+      Graphics2D g2 = (Graphics2D)g;
+      g2.setStroke(new BasicStroke(5));
+//top section layer l to r
+      g2.setColor(new Color(45, 87, 231));
+         g2.fillRect(0, 0, 200, 120);
+         g2.fillRect(400, 0, 200, 120);
+         g2.fillRect(800, 0, 200, 120);
+         g2.setColor(new Color(127, 188, 249));
+         g2.fillRect(200, 0, 200, 120);
+         g2.fillRect(600, 0, 200, 120);
+      //lines
+      g2.setColor(Color.BLACK);
+         g2.drawRect(0, 0, 200, 120);
+         g2.drawRect(200, 0, 200, 120);
+         g2.drawRect(400, 0, 200, 120);
+         g2.drawRect(600, 0, 200, 120);
+         g2.drawRect(800, 0, 200, 120);
+//BACKGROUNDHERE
+//Bottom layer l to r
+      g2.fillRect(880, 0, 200, 120);
+         
+         
+
+      
+      
+   }
+   public Dimension getPreferredSize(){
+      return new Dimension(1000, 1000);
+   }
+   
+   
+   public static void main(String[] args)
+   {
+      JFrameDrawing panel = new JFrameDrawing();
+      JFrame frame = new JFrame("Thomas Varano Drawing");
+      frame.getContentPane().add(panel);
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      frame.pack();
+      frame.setLocationRelativeTo(null);
+      frame.setVisible(true);
+   }
+
+//mouse location
+   @Override
+   public void mouseClicked(MouseEvent e)
+   {
+   }
+
+   @Override
+   public void mousePressed(MouseEvent e)
+   {
+   }
+
+   @Override
+   public void mouseReleased(MouseEvent e)
+   {
+   }
+
+   @Override
+   public void mouseEntered(MouseEvent e)
+   {
+   }
+
+   @Override
+   public void mouseExited(MouseEvent e)
+   {
+   }
+
+   @Override
+   public void mouseDragged(MouseEvent e)
+   {
+   }
+
+   @Override
+   public void mouseMoved(MouseEvent e)
+   {
+   }
+}

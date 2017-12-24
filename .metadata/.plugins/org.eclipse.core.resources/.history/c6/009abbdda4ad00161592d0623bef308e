@@ -1,0 +1,18 @@
+import javax.swing.JOptionPane;
+
+//Thomas Varano
+//[Program Descripion]
+//Nov 18, 2016
+public class RandomNumberG
+{
+   public static void main(String[] args)
+   {
+      String[] fav = {"She doesn't", "A little I guess", "She likes me", "She'd kill her child for me"};
+      String input = (String) JOptionPane.showInputDialog(null, "How much does Marootian like you?","RNG", JOptionPane.PLAIN_MESSAGE, null, fav, null);
+      
+     if (input == "She doesn't"){
+      JOptionPane.showMessageDialog(null, "Here's what you got.\n"+(10+MyStaticMethods.roundTo(Math.random(),4)*100%10),"RNG",JOptionPane.PLAIN_MESSAGE);
+      input = (String) JOptionPane.showInputDialog(null, "How much does Marootian like you?","RNG", JOptionPane.PLAIN_MESSAGE, null, fav, null);
+     }
+     else if (input == "A little I guess")}
+}

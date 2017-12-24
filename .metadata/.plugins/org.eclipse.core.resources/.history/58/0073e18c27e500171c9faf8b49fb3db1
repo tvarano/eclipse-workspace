@@ -1,0 +1,106 @@
+//Thomas Varano
+//[Program Descripion]
+//Dec 18, 2017
+
+package input;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import information.ClassPeriod;
+import information.Schedule;
+
+public class GPAInputSlot extends JPanel
+{
+   private static final long serialVersionUID = 1L;
+   private ClassPeriod cp;
+   private double weight;
+   private boolean useNumbers, hasLab, honors;
+
+   public GPAInputSlot(ClassPeriod in) {
+      init(in);
+   }
+
+   public GPAInputSlot(int slot, Schedule sched) {
+      init(sched.get(slot));
+   }
+
+   public void init(ClassPeriod c) {
+      // TODO magic nums
+      useNumbers = true;
+      setWeight(5);
+      if (c.getCourseLength() == ClassPeriod.HALF_YEAR)
+         setWeight(2.5);
+      if (hasLab)
+         setWeight(getWeight() + 1);
+      ((FlowLayout) getLayout()).setAlignment(FlowLayout.LEFT);
+      this.cp = c;
+      add(new JLabel(c.getName() + " : "));
+      add(new JLabel("Grade: ");
+      if (useNumbers) {
+         JTextField field = (JTextField) add(new JTextField(c.getGrade() + ""));
+      } else {
+         JComboBox<String> chooser = new JComboBox<String>();
+         DefaultComboBoxModel<String> m = new DefaultComboBoxModel<String>();
+         chooser.setModel(m);
+         for (String gr : GPAInput.letterGrades)
+            m.addElement(gr);
+         m.setSelectedItem(c.getLetterGrade());
+         add(chooser);
+      }
+      add(new JLabel("Honors or AP: "));
+      JCheckBox hon = new JCheckBox();
+      hon.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent arg0) {
+            honors = !honors;
+            System.out.println("CLICKED. hon = " + honors);
+         }
+      });
+      add(hon);
+   }
+
+   private double getGradePoint() {
+      double gradePoint = 0;
+      for (int i = 0; i < GPAInput.letterGrades.length; i++)
+         if (cp.getLetterGrade().equals(GPAInput.letterGrades[i])) {
+            gradePoint = (i < GPAInput.gradePoints.length)
+                  ? GPAInput.gradePoints[i]
+                  : GPAInput.gradePoints[GPAInput.gradePoints.length - 1];
+         }
+
+      if (honors)
+         gradePoint++;
+      return gradePoint;
+   }
+
+   public double getCredits(double gradePoint) {
+      return gradePoint * weight;
+   }
+
+   public double getWeight() {
+      return weight;
+   }
+
+   public void setWeight(double weight) {
+      this.weight = weight;
+   }
+
+   @SuppressWarnings("unchecked")
+   public double finish() {
+      if (useNumbers)
+         cp.setGrade(Double.parseDouble(((JTextField) getComponents()[0]).getText()));
+      else
+         cp.setGrade(((JComboBox<String>) getComponents()[0]).getSelectedItem() + "");
+
+      return getCredits(getGradePoint());
+   }
+}

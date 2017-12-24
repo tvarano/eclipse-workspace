@@ -1,0 +1,6 @@
+1489413792444	Rename compilation unit 'NPC.java'
+1489414204017	Encapsulate field 'sheet'
+1489414242926	Encapsulate field 'doneWorking'
+1489414300047	Encapsulate field 'script'
+1489865945688	Encapsulate field 'startTime'
+1489866559774	Encapsulate field 'parameterThree'

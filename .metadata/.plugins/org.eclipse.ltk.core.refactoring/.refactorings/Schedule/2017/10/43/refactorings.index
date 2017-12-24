@@ -1,0 +1,74 @@
+1508727826653	Rename type 'Reader'
+1508727845989	Rename type 'SchedWriter'
+1508727863872	Rename type 'NewReader'
+1508727883484	Rename type 'NewWriter'
+1508728024752	Delete element
+1508764500913	Encapsulate field 'pascackPreferences'
+1508881108642	Encapsulate field 'lab'
+1508889713336	Delete element
+1508978496614	Rename type 'ScheduleDisplay'
+1508978523411	Rename type 'ScheduleInput'
+1508978600064	Rename compilation unit 'Input.java'
+1508978744124	Move compilation unit
+1508978805207	Rename type 'InputMain'
+1508978944155	Rename package 'Input'
+1508978998555	Delete element
+1508979406747	Delete element
+1508979552321	Move compilation unit
+1508979563924	Move compilation unit
+1508979581694	Move compilation unit
+1508979598898	Move compilation unit
+1508979606965	Move compilation unit
+1508979620209	Move compilation unit
+1508979628453	Move compilation unit
+1508979632362	Move compilation unit
+1508979637607	Move compilation unit
+1508979641630	Move compilation unit
+1508979647296	Move compilation unit
+1508979656792	Move compilation unit
+1508979662660	Move compilation unit
+1508979669511	Move compilation unit
+1508979678574	Move compilation unit
+1508979690540	Move compilation unit
+1508979707594	Move compilation unit
+1508979716790	Move compilation unit
+1508979739710	Move compilation unit
+1508979753103	Move compilation unit
+1508979762575	Move compilation unit
+1508979767320	Move compilation unit
+1508979770795	Move compilation unit
+1508979775728	Move compilation unit
+1508979779841	Move compilation unit
+1508979783877	Move compilation unit
+1508979791419	Move compilation unit
+1508979795524	Move compilation unit
+1508979800995	Move compilation unit
+1508979855981	Copy package
+1508979861453	Copy package
+1508979865792	Copy package
+1508979881300	Delete element
+1508979886769	Delete element
+1508979910862	Rename package 'constants'
+1508979920514	Rename package 'display'
+1508979930320	Rename package 'information'
+1508979941052	Rename package 'input'
+1508979993155	Rename package 'ioFunctions'
+1508980003832	Rename package 'tools'
+1508980015412	Copy package
+1508980030889	Copy package
+1508980038283	Copy package
+1508980042690	Delete element
+1508980046916	Delete element
+1508980107881	Delete element
+1508980115530	Delete element
+1508980127222	Rename package 'toolsOLD'
+1508980156529	Rename package 'ioFunctionsOLD'
+1508980163740	Delete element
+1508980170617	Rename package 'inputOLD'
+1508980174999	Rename package 'informationOLD'
+1508980178791	Rename package 'displayOLD'
+1508980183502	Rename package 'constantsOLD'
+1508980219339	Move compilation unit
+1508980222411	Move compilation unit
+1508981074684	Rename type 'Input'
+1508981096602	Rename type 'Display'
