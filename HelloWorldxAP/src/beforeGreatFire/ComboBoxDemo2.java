@@ -73,6 +73,7 @@ public class ComboBoxDemo2 extends JPanel
     } //constructor
  
     public void actionPerformed(ActionEvent e) {
+       System.out.println("ACTION");
         JComboBox cb = (JComboBox)e.getSource();
         String newSelection = (String)cb.getSelectedItem();
         currentPattern = newSelection;
