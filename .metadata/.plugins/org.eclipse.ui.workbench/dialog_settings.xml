@@ -25,8 +25,15 @@
 			<item value="/Users/varanoth/Desktop/Java EXEs"/>
 		</list>
 	</section>
+	<section name="InstallationDialogSettings">
+		<item value="702" key="DIALOG_WIDTH"/>
+		<item value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont" key="DIALOG_FONT_NAME"/>
+		<item value="652" key="DIALOG_HEIGHT"/>
+		<item value="-84" key="DIALOG_X_ORIGIN"/>
+		<item value="-208" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="ImportExportAction">
-		<item value="org.eclipse.jdt.internal.ui.fatjarpackager.JarPackageWizard" key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID"/>
+		<item value="org.eclipse.jdt.internal.ui.jarpackager.JarPackageWizard" key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID"/>
 		<item value="org.eclipse.egit.ui.internal.clone.GitCloneWizard" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
 			<item value="org.eclipse.egit.ui.internal.clone.gitclonecategory"/>

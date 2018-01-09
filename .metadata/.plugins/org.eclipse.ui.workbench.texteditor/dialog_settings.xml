@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="&#x0A;" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
-		<item value="false" key="wrap"/>
+		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="ltr;&quot;&gt;"/>
-			<item value="ltr;\&quot;&gt;"/>
-			<item value="system"/>
-			<item value="contact"/>
-			<item value="cont"/>
-			<item value="repaint"/>
+			<item value="varanoth@"/>
+			<item value="varanoth"/>
+			<item value="nosc"/>
+			<item value="cloned"/>
+			<item value="clone"/>
+			<item value="classStr"/>
+			<item value="adding"/>
+			<item value="addin"/>
 			<item value="add"/>
-			<item value="text"/>
-			<item value="setre"/>
-			<item value="setla"/>
-			<item value="hours"/>
-			<item value="styles"/>
-			<item value="created"/>
-			<item value="r4"/>
-			<item value="6/14"/>
+			<item value="components"/>
+			<item value="cance"/>
+			<item value="inputm"/>
+			<item value="inputt"/>
+			<item value="forma"/>
+			<item value="form"/>
 		</list>
 		<list key="replacehistory">
 			<item value=" c "/>
@@ -33,7 +33,7 @@
 		<item value="290" key="DIALOG_WIDTH"/>
 		<item value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont" key="DIALOG_FONT_NAME"/>
 		<item value="409" key="DIALOG_HEIGHT"/>
-		<item value="345" key="DIALOG_X_ORIGIN"/>
-		<item value="416" key="DIALOG_Y_ORIGIN"/>
+		<item value="633" key="DIALOG_X_ORIGIN"/>
+		<item value="280" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
