@@ -6,9 +6,12 @@ package inheritance.superClasses;
 
 public class SkiJumper extends Athlete
 {
-
-   public SkiJumper(String name, String sport, int hours) {
-      super(name, sport, hours);
+   public SkiJumper() {
+      super("name", "Ski Jump", 0);
+   }
+   
+   public SkiJumper(String name, int hours) {
+      super(name, "Ski Jump", hours);
    }
    
    public void train(double hours) {
