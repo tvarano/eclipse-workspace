@@ -885,9 +885,6 @@ private int mousex,mousey;
             g2.setColor(Color.BLACK);
             g2.fillRect(350, yvalue, 120, 20);
             
-            
-
-
             g2.setColor(thegrey);
             
             g2.drawRect(350, yvalue, 20, 20);

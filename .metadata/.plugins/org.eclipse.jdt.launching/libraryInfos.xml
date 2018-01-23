@@ -22,6 +22,7 @@
             <entry path="/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed"/>
         </endorsedDirs>
     </libraryInfo>
+    <libraryInfo home="/Library/Java/JavaVirtualMachines/jdk-9.0.4.jdk/Contents/Home" version="9.0.4"/>
     <libraryInfo home="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home" version="1.8.0_101">
         <bootpath>
             <entry path="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/resources.jar"/>
