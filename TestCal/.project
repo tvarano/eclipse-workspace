@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>jfx</name>
+			<type>2</type>
+			<location>/Users/varanoth/Desktop/Java Files/Referenced Libraries (jar::zip)/jfxtras-icalendarfx copy/src/main/java</location>
+		</link>
+	</linkedResources>
 </projectDescription>
