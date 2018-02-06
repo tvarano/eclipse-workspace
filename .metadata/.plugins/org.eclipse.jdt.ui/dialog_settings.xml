@@ -23,7 +23,7 @@
 	<item value="991" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_width"/>
 	<item value="824" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_height"/>
 	<item value="/Users/varanoth/Desktop/Java Files/Referenced Libraries (jar:zip)" key="org.eclipse.jdt.ui.lastextjar"/>
-	<item value="/Users/varanoth/Desktop/Java Files/Referenced Libraries (jar:zip)/jfxtras-icalendarfx copy" key="org.eclipse.jdt.ui.last.external.project"/>
+	<item value="/Users/varanoth/git/schedule-new" key="org.eclipse.jdt.ui.last.external.project"/>
 	<item value="2" key="org.eclipse.jdt.ui.last.selected.jre.kind2"/>
 	<list key="SearchScopeActionGroup.working_set">
 	</list>
@@ -71,6 +71,7 @@
 		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
 			<item value="/Users/varanoth/Desktop/Java Files/AgendaPH.jar"/>
+			<item value="/Users/varanoth/Desktop/Java Files/add.jar"/>
 			<item value="/Users/varanoth/Desktop/Java Files/AgendaTESTDOC.jar"/>
 			<item value="/Users/varanoth/Desktop/Java Files/AgendaPH1jar.jar"/>
 			<item value="/Users/varanoth/Desktop/Java Files/AgendaPH 1.2.2.jar"/>
@@ -243,7 +244,7 @@
 		<item value="11" key="INCLUDE_MASK"/>
 	</section>
 	<section name="BuildPathsPropertyPage">
-		<item value="2" key="pageIndex"/>
+		<item value="3" key="pageIndex"/>
 	</section>
 	<section name="NewPackageWizardPage">
 		<item value="false" key="create_package_info_java"/>

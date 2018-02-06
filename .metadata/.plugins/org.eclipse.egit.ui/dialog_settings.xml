@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<item value="2" key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel"/>
-	<item value="MIXED" key="ResetTargetSelectionDialog.resetType"/>
+	<item value="HARD" key="ResetTargetSelectionDialog.resetType"/>
 	<list key="EGit.KnownHosts">
-		<item value="bitbucket.org"/>
 		<item value="git.eclipse.org"/>
+		<item value="bitbucket.org"/>
 		<item value="github.com"/>
 	</list>
 	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/tvarano54/schedule-new.git"/>
 		<item value="https://github.com/tvarano54/jfxtras.git"/>
 		<item value="https://github.com/tvarano54/schedule-new/"/>
 		<item value="https://github.com/JFXtras/jfxtras.git"/>
@@ -47,6 +48,9 @@
 		<item value="153" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="GitCommitMessageComponent">
+		<list key="/Users/varanoth/git/schedule-new/.git">
+			<item value="empty"/>
+		</list>
 		<list key="/Users/varanoth/.git">
 			<item value="empty"/>
 		</list>

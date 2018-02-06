@@ -453,3 +453,6 @@ java.lang.NullPointerException: null
 2018-01-25 23:04:06,071 [Worker-7] ERROR o.e.m2e.scm.MavenCheckoutOperation - SCM provider is not available for scm:null:https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api
 2018-01-25 23:04:06,092 [Worker-7] INFO  o.e.m.s.i.w.MavenProjectCheckoutJob - No Maven projects to import
 2018-01-25 23:04:06,112 [Worker-24] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 0 project(s) in 0 sec
+2018-01-30 21:04:44,333 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-01-30 21:05:12,957 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2018-01-31 10:25:40,110 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

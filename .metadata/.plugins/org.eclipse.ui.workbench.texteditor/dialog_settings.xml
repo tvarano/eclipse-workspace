@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="ifra" key="selection"/>
+		<item value="About" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="ifra"/>
-			<item value="varanoth@"/>
-			<item value="varanoth"/>
-			<item value="nosc"/>
-			<item value="cloned"/>
-			<item value="clone"/>
-			<item value="classStr"/>
-			<item value="adding"/>
-			<item value="addin"/>
-			<item value="add"/>
-			<item value="components"/>
-			<item value="cance"/>
-			<item value="inputm"/>
-			<item value="inputt"/>
-			<item value="forma"/>
+			<item value="about"/>
+			<item value="abount"/>
+			<item value="debugSave"/>
+			<item value="background"/>
+			<item value="close"/>
+			<item value="backgr"/>
+			<item value=".red"/>
+			<item value="gpa succ"/>
+			<item value="red"/>
+			<item value="drawing"/>
+			<item value="information"/>
+			<item value="pascack"/>
+			<item value="worin"/>
+			<item value="wor"/>
+			<item value="woring"/>
 		</list>
 		<list key="replacehistory">
 			<item value=" c "/>
