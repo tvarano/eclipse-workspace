@@ -2,7 +2,7 @@
 
 
 //JUST FOR PERSONAL PACKAGING... REMOVE AND THEN COMPILE
-package personal.december;
+package schoolWork.acsl;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,7 +14,7 @@ import java.util.Scanner;
  * @author Thomas Varano
  *
  */
-public class ACSLCards
+public class Cards
 {  
    private static final Character[] cardValues = {'2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'};
    private static final int[] pts = {2, 3, 4, 5, 6, 7, 8, 0, -10, 11, 12, 13, 14};

@@ -4,11 +4,13 @@
 
 package personal.december;
 
+import schoolWork.acsl.Cards;
+
 public class ClassPrinting
 {
    public static void main(String[] args) {
       printClass(ClassPrinting.class);
-      printClass(ACSLCards.class);
+      printClass(Cards.class);
    }
    
    public static void printClass(Class x) {

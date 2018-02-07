@@ -5,18 +5,18 @@ package schoolWork.recursion;
 
 public final class NumberConverter {
    public static void main(String[] args) {
-      System.out.println(getBinary(25));
+      System.out.println(getBinary(0));
       System.out.println(getOctal(10));
       System.out.println(getHexaDecimal(15));
+      System.out.println("sum"+sumAB(3,8));
    }
    
-   private static char[] getAlphaNum() {
-      char[] ret = new char[36];
-      int index = 0;
-      for (char n = '0'; n <= '9'; n++, index++)
-         ret[index] = n;
-      for (char a = 'a'; a <= 'z'; a++, index++)
-         ret[index] = a;
+   private static String getAlphaNum() {
+      String ret = "";
+      for (char n = '0'; n <= '9'; n++)
+         ret += n;
+      for (char a = 'a'; a <= 'z'; a++)
+         ret += a;
       return ret;
    }
    public static String getBinary(int dec) {
@@ -24,8 +24,8 @@ public final class NumberConverter {
    }
    
    private static String getBase(int dec, int base) {
-      if (dec < base) return getAlphaNum()[dec % base] + "";
-      return getBase(dec / base, base) + getAlphaNum()[dec % base];
+      if (dec < base) return getAlphaNum().charAt(dec) + "";
+      return getBase(dec / base, base) + getAlphaNum().charAt(dec % base);
    }
    
    public static String getOctal(int dec) {
@@ -34,5 +34,10 @@ public final class NumberConverter {
    
    public static String getHexaDecimal(int dec) {
       return getBase(dec, 16);
+   }
+   
+   public static int sumAB(int a, int b) {
+      if (a == b) return b;
+      return a + sumAB(a+1, b);
    }
 }
