@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="About" key="selection"/>
+		<item value="Clear Pref" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="about"/>
-			<item value="abount"/>
-			<item value="debugSave"/>
-			<item value="background"/>
-			<item value="close"/>
-			<item value="backgr"/>
-			<item value=".red"/>
-			<item value="gpa succ"/>
-			<item value="red"/>
-			<item value="drawing"/>
-			<item value="information"/>
-			<item value="pascack"/>
-			<item value="worin"/>
-			<item value="wor"/>
-			<item value="woring"/>
+			<item value="clear pref"/>
+			<item value="logda"/>
+			<item value="creating"/>
+			<item value="start "/>
+			<item value="start"/>
+			<item value="site"/>
+			<item value="not chosen"/>
+			<item value="logd"/>
+			<item value="logsd"/>
+			<item value="sourceUR"/>
+			<item value="sorting sort"/>
+			<item value="install"/>
+			<item value="saved"/>
+			<item value="fileh"/>
+			<item value="log"/>
 		</list>
 		<list key="replacehistory">
 			<item value=" c "/>
@@ -33,7 +33,7 @@
 		<item value="290" key="DIALOG_WIDTH"/>
 		<item value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont" key="DIALOG_FONT_NAME"/>
 		<item value="409" key="DIALOG_HEIGHT"/>
-		<item value="633" key="DIALOG_X_ORIGIN"/>
-		<item value="280" key="DIALOG_Y_ORIGIN"/>
+		<item value="1101" key="DIALOG_X_ORIGIN"/>
+		<item value="178" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
