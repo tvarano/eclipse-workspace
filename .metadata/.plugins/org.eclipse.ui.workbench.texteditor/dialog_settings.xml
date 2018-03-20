@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="484" key="DIALOG_X_ORIGIN"/>
+		<item value="301" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Clear Pref" key="selection"/>
+		<item value="showPref" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="clear pref"/>
-			<item value="logda"/>
-			<item value="creating"/>
-			<item value="start "/>
-			<item value="start"/>
-			<item value="site"/>
-			<item value="not chosen"/>
-			<item value="logd"/>
-			<item value="logsd"/>
-			<item value="sourceUR"/>
-			<item value="sorting sort"/>
-			<item value="install"/>
-			<item value="saved"/>
-			<item value="fileh"/>
-			<item value="log"/>
+			<item value="showpref"/>
+			<item value="247"/>
+			<item value="no_"/>
+			<item value="no"/>
+			<item value="no_teac"/>
+			<item value="rotationco"/>
+			<item value="rot"/>
+			<item value="lunch"/>
+			<item value="selected"/>
+			<item value="selec"/>
+			<item value="cansh"/>
+			<item value="rotation"/>
+			<item value="pasca"/>
+			<item value="rotationconsta"/>
+			<item value="rotationcons"/>
 		</list>
 		<list key="replacehistory">
 			<item value=" c "/>

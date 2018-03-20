@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 public class ReadDoc {
+   
    public static void main(String[] args) {
       try {
          System.out.println(readHtml(new URL("http://agendapascack.x10host.com/DayTypes/")));

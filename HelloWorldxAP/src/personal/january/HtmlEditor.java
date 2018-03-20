@@ -4,11 +4,8 @@
 
 package personal.january;
 
-import java.awt.Color;
-
 import javax.swing.JEditorPane;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
 import javax.swing.text.Document;
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;

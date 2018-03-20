@@ -22,8 +22,8 @@
 	<item value="1" key="SearchScopeActionGroup.search_scope_type"/>
 	<item value="1037" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_width"/>
 	<item value="825" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_height"/>
-	<item value="/Users/varanoth/Desktop/Java Files/Referenced Libraries (jar:zip)" key="org.eclipse.jdt.ui.lastextjar"/>
-	<item value="/Users/varanoth/git/schedule-new" key="org.eclipse.jdt.ui.last.external.project"/>
+	<item value="/Users/varanoth/Desktop/Java Files/Referenced Libraries (jar:zip)/twitter4j-4.0.4/lib" key="org.eclipse.jdt.ui.lastextjar"/>
+	<item value="/Users/varanoth/Desktop/Java Files/Referenced Libraries (jar:zip)/twitter4j-core" key="org.eclipse.jdt.ui.last.external.project"/>
 	<item value="2" key="org.eclipse.jdt.ui.last.selected.jre.kind2"/>
 	<list key="SearchScopeActionGroup.working_set">
 	</list>
@@ -66,10 +66,13 @@
 	<section name="FatJarPackageWizard">
 		<item value="/Users/varanoth/Documents/workspace" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
 		<item value="Agenda - agenda" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="/Users/varanoth/Desktop/Agenda-1.7.5/Agenda-1.7.5.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="/Users/varanoth/Desktop/Agenda-1.7.6/Agenda-1.7.7.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="/Users/varanoth/Desktop/Agenda-1.7.6/Agenda-1.7.7.jar"/>
+			<item value="/Users/varanoth/Desktop/Agenda-1.7.6/Agenda-1.7.6.1.jar"/>
+			<item value="/Users/varanoth/Desktop/Agenda-1.7.6/Agenda-1.7.6.jar"/>
 			<item value="/Users/varanoth/Desktop/Agenda-1.7.5/Agenda-1.7.5.jar"/>
 			<item value="/Users/varanoth/Desktop/Java Files/Java EXEs/Agenda-Restarter.jar"/>
 			<item value="/Users/varanoth/Desktop/Agenda-Restarter.jar"/>
@@ -87,9 +90,6 @@
 			<item value="/Users/varanoth/Desktop/Java EXEs/THETRUTH.jar"/>
 			<item value="/Users/varanoth/Desktop/Java EXEs/TetrisPreAlpha.jar"/>
 			<item value="/Users/varanoth/Desktop/Java EXEs/PongBeta.jar"/>
-			<item value="/Users/varanoth/Desktop/Java EXEs/ThomasVaranoMadLibs2.jar"/>
-			<item value="/Users/varanoth/Desktop/Java EXEs/ThomasVaranoJOption.jar"/>
-			<item value="/Users/varanoth/Desktop/Java EXEs/Averager Working.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
 			<item value="/Users/varanoth/Documents/workspace.xml"/>
@@ -255,6 +255,6 @@
 		<item value="3" key="pageIndex"/>
 	</section>
 	<section name="NewPackageWizardPage">
-		<item value="true" key="create_package_info_java"/>
+		<item value="false" key="create_package_info_java"/>
 	</section>
 </section>
