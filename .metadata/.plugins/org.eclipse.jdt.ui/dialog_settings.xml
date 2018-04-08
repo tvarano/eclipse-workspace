@@ -66,10 +66,15 @@
 	<section name="FatJarPackageWizard">
 		<item value="/Users/varanoth/Documents/workspace" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
 		<item value="Agenda - agenda" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="/Users/varanoth/Desktop/Agenda-1.7.6/Agenda-1.7.7.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="/Users/varanoth/Desktop/Update/src.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="/Users/varanoth/Desktop/Update/src.jar"/>
+			<item value="/Users/varanoth/Desktop/Update/Updater.jar"/>
+			<item value="/Users/varanoth/Desktop/Update/Agenda.jar"/>
+			<item value="/Users/varanoth/Desktop/Agenda-1.7.6/PathTest.jar"/>
+			<item value="/Users/varanoth/Desktop/Agenda-1.7.6/Agenda-1.7.7-Updater.jar"/>
 			<item value="/Users/varanoth/Desktop/Agenda-1.7.6/Agenda-1.7.7.jar"/>
 			<item value="/Users/varanoth/Desktop/Agenda-1.7.6/Agenda-1.7.6.1.jar"/>
 			<item value="/Users/varanoth/Desktop/Agenda-1.7.6/Agenda-1.7.6.jar"/>
@@ -85,11 +90,6 @@
 			<item value="/Users/varanoth/Desktop/Java Files/add.jar"/>
 			<item value="/Users/varanoth/Desktop/Java Files/AgendaTESTDOC.jar"/>
 			<item value="/Users/varanoth/Desktop/Java Files/AgendaPH1jar.jar"/>
-			<item value="/Users/varanoth/Desktop/Java Files/AgendaPH 1.2.2.jar"/>
-			<item value="/Users/varanoth/Desktop/Java Files/VaranoTetris.jar"/>
-			<item value="/Users/varanoth/Desktop/Java EXEs/THETRUTH.jar"/>
-			<item value="/Users/varanoth/Desktop/Java EXEs/TetrisPreAlpha.jar"/>
-			<item value="/Users/varanoth/Desktop/Java EXEs/PongBeta.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
 			<item value="/Users/varanoth/Documents/workspace.xml"/>

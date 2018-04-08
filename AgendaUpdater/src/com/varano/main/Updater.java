@@ -3,6 +3,7 @@
 
 package com.varano.main;
 
+import java.awt.EventQueue;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -12,6 +13,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Scanner;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -19,32 +21,42 @@ import javax.swing.JTextField;
 
 public class Updater {
    
-   static String home = System.getProperty("user.home");
+   private static String home = System.getProperty("user.home");
    
-   static final String CFG_VERSION_KEY = "app.version=";
+   private static final String CFG_VERSION_KEY = "app.version=";
    
-   static final String CFG_JAR_KEY = "app.mainjar=";
+   private static final String CFG_JAR_KEY = "app.mainjar=";
    
-   static final String INFO_VERSION_KEY_A = "CFBundleShortVersionString";
+   private static final String INFO_VERSION_KEY_A = "CFBundleShortVersionString";
 
-   static final String INFO_VERSION_KEY_B = "CFBundleVersion";
+   private static final String INFO_VERSION_KEY_B = "CFBundleVersion";
 
-   static final String APP_NAME = "Agenda";
+   private static final String APP_NAME = "Agenda";
+   
+   private static final String THIS_LOCATION = System.getProperty("java.class.path");
+ 
+   private static final String version = "1.7.9";
    
    private static String askHome() {
       System.out.println("ask home");
       JLabel userHome = new JLabel(Updater.home + "/");
-      JLabel suffix = new JLabel("/Agenda.app");
+      JLabel suffix = new JLabel("/"+APP_NAME + ".app");
       JTextField f = new JTextField();
       JPanel p = new JPanel();
       f.setPreferredSize(new java.awt.Dimension(350, 25));
       p.add(userHome); p.add(f); p.add(suffix);
       JOptionPane.showMessageDialog(null, p, "Where is the Application Kept?", JOptionPane.INFORMATION_MESSAGE, null);
-      return Updater.home + "/" + f.getText() + suffix;
+      return Updater.home + "/" + f.getText() + suffix.getText();
    }
    
    private static String otherVersion() {
+      System.out.println("ask version");
       return "1.7.6";
+   }
+   
+   private static String oldestVersion() {
+      System.out.println("ask oldest version");
+      return "1.7.5";
    }
    
    /**
@@ -52,13 +64,31 @@ public class Updater {
     * @param args
     */
    public static void main(String[] args) {
+      EventQueue.invokeLater(new Runnable() {
+         @Override
+         public void run() {
+            update(args);
+         }  
+      });
+   }
+   
+   public static void update(String[] args) {
+      //Account for spaces in args
+      String argConcat = null;
+      if (args.length > 0) {
+         for (int i = 0; i < args.length; i++) {
+            if (i == 0)
+               argConcat+= args[i];
+            else argConcat+=" "+args[i];
+         }
+      }
+      
       //Quit Agenda
       String newJarName = "Agenda.jar";
       boolean appWasRunning;
       try {
-         Process quit = new ProcessBuilder("killall", "Agenda").start();
-         appWasRunning = quit.exitValue() == 0;
-         quit.waitFor();
+         Process quit = new ProcessBuilder("killall", APP_NAME).start();
+         appWasRunning = quit.waitFor() == 0;
       } catch (IOException | InterruptedException e1) {
          e1.printStackTrace();
          appWasRunning = false;
@@ -66,14 +96,13 @@ public class Updater {
       System.out.println("running: "+appWasRunning);
       
       String home;
-      String version = "1.7.7";
-      if (args.length > 0 && args[0] != null)
-         home = args[0];
-      else
-         home = Updater.home + "/Desktop/Update/Agenda.app";
-//         home = "/Applications/Agenda.app";
-      if (!new File(home).exists())
+      if (argConcat == null) {
+         home = "/Applications/Agenda.app";
+            home = Updater.home+ "/Desktop/Agenda.app";
+      } else home = argConcat;
+      if (!new File(home).isDirectory())
          home = askHome();
+      System.out.println("home: "+home);
       String javaHome = home + "/Contents/Java/";
       String dest = javaHome + APP_NAME + ".jar";
       
@@ -83,10 +112,12 @@ public class Updater {
       if (!removed) {
          //account for old program, where the jar was Agenda-1.7.6.jar
          System.out.println("Agenda-"+otherVersion()+".jar");
-         if (!new File(javaHome + "Agenda-"+otherVersion()+".jar").delete()) {
-            showFailure("Error removing old jar.");
-            System.exit(0);
-         }
+         if (!new File(javaHome + "Agenda-"+otherVersion()+".jar").delete())
+            //also account for 1.7.5
+            if (!new File(javaHome + "Agenda-"+oldestVersion()+".jar").delete()) {        
+               showFailure("Error removing old jar at\n"+javaHome + "Agenda-"+otherVersion()+".jar");
+               System.exit(0);
+            }
       }
       
       //trying to copy
@@ -94,7 +125,7 @@ public class Updater {
          transfer(dest);
       } catch (IOException e) {
          System.err.println("attempt to copy failed");
-         showFailure("Error Copying Files.");
+         showFailure("Error Copying Files to "+dest);
          System.exit(1);
       }
       
@@ -123,7 +154,6 @@ public class Updater {
       }
       
       //change references in info.plist
-      //<string>1.7.6</string>
       try {
          String info = ""; 
          Scanner in = new Scanner(new File(home + "/Contents/Info.plist"));
@@ -147,16 +177,51 @@ public class Updater {
          showFailure("Cannot update info.plist references.");
       }
       
+      //show the welcome screen upon open
+      try {
+         writeWelcomeTrue(home + "/Contents/Resources/Internal/InternalData/");
+      } catch (IOException e1) {
+         e1.printStackTrace();
+      }
+      
       //if app was running, open a new instance
       if (appWasRunning) {
          try {
             Process restart = new ProcessBuilder("open", home).start();
-            restart.waitFor();
-            System.out.println("restart: " + restart.exitValue());
+            System.out.println("opening..." + home);
+            System.out.println("restart: " + restart.waitFor());
          } catch (IOException | InterruptedException e) {
             e.printStackTrace();
          }
       }
+      
+      //self destruct
+      if (THIS_LOCATION.contains(".jar")) {
+         try {
+            Process delete = new ProcessBuilder("rm", THIS_LOCATION).start();
+            System.out.println("delete: " + delete.waitFor());
+         } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+         }
+      }
+      System.exit(0);
+   }
+   
+   public static ImageIcon getIcon(String localPath) {
+      try {
+         return new ImageIcon(Updater.class.getResource(localPath));
+      } catch (NullPointerException e) {
+         e.printStackTrace();
+         return null;
+      }
+   }
+   
+   public static void writeWelcomeTrue(String dir) throws IOException {
+      new File(dir).mkdirs();
+      BufferedWriter bw = new BufferedWriter(new FileWriter(dir + "showWelcome.txt"));
+      System.out.println("welcome file: "+dir + "showWelcome.txt");
+      bw.write("t");
+      bw.close(); 
    }
    
    private static void showFailure(String reason) {

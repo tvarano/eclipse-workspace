@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.net.URI"/>
-    <fullyQualifiedTypeName name="java.nio.file.CopyOption"/>
-    <fullyQualifiedTypeName name="main.PathTest"/>
-    <fullyQualifiedTypeName name="constants.Rotation"/>
-    <fullyQualifiedTypeName name="constants.test.DayTypeBackup"/>
-    <fullyQualifiedTypeName name="constants.test.DayType"/>
     <fullyQualifiedTypeName name="constants.test.RotationBackup"/>
     <fullyQualifiedTypeName name="display.CurrentInfo"/>
     <fullyQualifiedTypeName name="display.ScheduleList"/>
     <fullyQualifiedTypeName name="java.util.Timer"/>
     <fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
     <fullyQualifiedTypeName name="display.DisplayMain"/>
-    <fullyQualifiedTypeName name="java.net.URL"/>
     <fullyQualifiedTypeName name="java.util.concurrent.TimeoutException"/>
     <fullyQualifiedTypeName name="managers.UIHandler"/>
     <fullyQualifiedTypeName name="resources.ResourceAccess"/>
-    <fullyQualifiedTypeName name="java.awt.EventQueue"/>
     <fullyQualifiedTypeName name="java.awt.Desktop"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
@@ -59,5 +51,13 @@
     <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
     <fullyQualifiedTypeName name="com.varano.information.constants.ErrorID"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.awt.Toolkit"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="java.lang.ProcessBuilder"/>
+    <fullyQualifiedTypeName name="java.net.URL"/>
+    <fullyQualifiedTypeName name="com.varano.resources.ioFunctions.OrderUtility"/>
+    <fullyQualifiedTypeName name="java.awt.EventQueue"/>
+    <fullyQualifiedTypeName name="com.varano.managers.UpdateHandler"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="com.varano.managers.Agenda"/>
 </qualifiedTypeNameHistroy>

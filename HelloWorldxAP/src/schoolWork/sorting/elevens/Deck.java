@@ -58,11 +58,9 @@ public class Deck {
     * and reset the size to represent the entire deck.
     */
    public void shuffle() {
-      System.out.println("suhff");
-      for (int i = 0; i < cards.size()*10; i++) {
-         int a = (int) (Math.random() * cards.size());
-         int b = (int) (Math.random() * cards.size());
-         cards.set(a, cards.set(b, cards.get(a)));
+      for (int i = cards.size() - 1; i > 0; i--) {
+         int random = (int) (Math.random() * i);
+         cards.set(i, cards.set(random, cards.get(i)));
       }
       size = cards.size();
    }
