@@ -18,13 +18,16 @@ public class Networking
       String hostname;
       try {
           ip = InetAddress.getLocalHost();
+          System.out.println("INET "+InetAddress.getByName("www.google.com"));
           hostname = ip.getHostName();
-          System.out.println("Your current IP address : " + ip);
+          System.out.println("Your current IP address : " + ip.getHostAddress());
           System.out.println("Your current Hostname : " + hostname);
 
       } catch (UnknownHostException e) {
 
           e.printStackTrace();
+      } catch (IOException e) {
+         e.printStackTrace();
       }
       createServer();
   }

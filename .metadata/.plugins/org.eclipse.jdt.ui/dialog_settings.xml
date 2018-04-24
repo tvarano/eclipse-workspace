@@ -22,7 +22,7 @@
 	<item value="1" key="SearchScopeActionGroup.search_scope_type"/>
 	<item value="1037" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_width"/>
 	<item value="825" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_height"/>
-	<item value="/Users/varanoth/Desktop/Java Files/Referenced Libraries (jar:zip)/twitter4j-4.0.4/lib" key="org.eclipse.jdt.ui.lastextjar"/>
+	<item value="/Users/varanoth/git/agenda/Schedule/bin/com/varano/resources/libs" key="org.eclipse.jdt.ui.lastextjar"/>
 	<item value="/Users/varanoth/Desktop/Java Files/Referenced Libraries (jar:zip)/twitter4j-core" key="org.eclipse.jdt.ui.last.external.project"/>
 	<item value="2" key="org.eclipse.jdt.ui.last.selected.jre.kind2"/>
 	<list key="SearchScopeActionGroup.working_set">
@@ -71,6 +71,9 @@
 		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
 			<item value="/Users/varanoth/Desktop/Update/src.jar"/>
+			<item value="/Users/varanoth/Desktop/Update/updater-src.jar"/>
+			<item value="/Users/varanoth/Desktop/Update/testExpCP.jar"/>
+			<item value="/Users/varanoth/Desktop/Update/emailer.jar"/>
 			<item value="/Users/varanoth/Desktop/Update/Updater.jar"/>
 			<item value="/Users/varanoth/Desktop/Update/Agenda.jar"/>
 			<item value="/Users/varanoth/Desktop/Agenda-1.7.6/PathTest.jar"/>
@@ -87,9 +90,6 @@
 			<item value="/Users/varanoth/Desktop/Java Files/Restarter.jar"/>
 			<item value="/Users/varanoth/Desktop/Java Files/Agenda-1.7.4.jar"/>
 			<item value="/Users/varanoth/Desktop/Java Files/AgendaPH.jar"/>
-			<item value="/Users/varanoth/Desktop/Java Files/add.jar"/>
-			<item value="/Users/varanoth/Desktop/Java Files/AgendaTESTDOC.jar"/>
-			<item value="/Users/varanoth/Desktop/Java Files/AgendaPH1jar.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
 			<item value="/Users/varanoth/Documents/workspace.xml"/>
@@ -187,6 +187,7 @@
 	</section>
 	<section name="OptionalMessageDialog.hide.">
 		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
+		<item value="false" key="RunnableJar.export.ipwarning"/>
 	</section>
 	<section name="NewAnnotationWizardPage">
 		<item value="false" key="add_documented"/>
@@ -252,7 +253,7 @@
 		<item value="11" key="INCLUDE_MASK"/>
 	</section>
 	<section name="BuildPathsPropertyPage">
-		<item value="3" key="pageIndex"/>
+		<item value="2" key="pageIndex"/>
 	</section>
 	<section name="NewPackageWizardPage">
 		<item value="false" key="create_package_info_java"/>

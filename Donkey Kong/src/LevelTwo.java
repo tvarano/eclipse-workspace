@@ -76,7 +76,7 @@ implements ActionListener, MouseListener, KeyListener, MouseMotionListener
       GOD_BARREL.setPlatforms(platforms);
       GOD_BARREL.setLadders(ladders);
       
-//      timer.start();
+      timer.start();
 
    }
    

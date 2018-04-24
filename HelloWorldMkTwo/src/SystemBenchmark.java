@@ -9,8 +9,7 @@ public class SystemBenchmark
 
    public static void main(String[] args) {
       long startTime = System.currentTimeMillis();
-      int time = 100000;
-      HashMap<Integer, Object> map = new HashMap<Integer, Object>();
+      int time = 1000000;
       for (int i = 0; i < time; i++) {
          System.out.println("looping..."+i);
       }

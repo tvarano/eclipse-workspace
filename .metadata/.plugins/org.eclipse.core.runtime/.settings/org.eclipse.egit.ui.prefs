@@ -1,3 +1,4 @@
+//BranchProjectTracker__/Users/varanoth/git/agenda/.git_1.8=<?xml version\="1.0" encoding\="UTF-8"?>\n<projects branch\="1.8">\n<project>/</project>\n</projects>
 //BranchProjectTracker__/Users/varanoth/git/agenda/.git_master=<?xml version\="1.0" encoding\="UTF-8"?>\n<projects branch\="master">\n<project>/</project>\n</projects>
 //BranchProjectTracker__/Users/varanoth/git/agenda/.git_rotation-read=<?xml version\="1.0" encoding\="UTF-8"?>\n<projects branch\="rotation-read">\n<project>/</project>\n</projects>
 //BranchProjectTracker__/Users/varanoth/git/agenda/.git_rotation-reading=<?xml version\="1.0" encoding\="UTF-8"?>\n<projects branch\="rotation-reading">\n<project>/</project>\n</projects>
@@ -9,5 +10,5 @@
 //BranchProjectTracker__/Users/varanoth/git/schedule-new/.git_reorder-screen=<?xml version\="1.0" encoding\="UTF-8"?>\n<projects branch\="reorder-screen">\n<project>/</project>\n</projects>
 //BranchProjectTracker__/Users/varanoth/git/schedule-reeno/.git_master=<?xml version\="1.0" encoding\="UTF-8"?>\n<projects branch\="master"/>
 RebaseInteractive_SyncWithSelection=false
-commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\n<messages>\n<message>finish online updating capabilities</message>\n<message>implement online updates</message>\n<message>fix bugs in display, gpa gui, and toolbar</message>\n<message>3-20</message>\n<message>fix bugs, add updater</message>\n<message>1.7.6.1... bug fixes, welcome screen. still lunch bug</message>\n<message>finalize 1.7.6</message>\n<message>update classPath</message>\n<message>move constants, get rid of twitter, read from hills.pascack website</message>\n<message>fix toolbar bugs, make toolbar popup menu, fix online updates</message>\n</messages>
+commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\n<messages>\n<message>bug fixes</message>\n<message>update addresses</message>\n<message>update gitignore and DS_Store</message>\n<message>finish online updating capabilities</message>\n<message>implement online updates</message>\n<message>fix bugs in display, gpa gui, and toolbar</message>\n<message>3-20</message>\n<message>fix bugs, add updater</message>\n<message>1.7.6.1... bug fixes, welcome screen. still lunch bug</message>\n<message>finalize 1.7.6</message>\n</messages>
 eclipse.preferences.version=1

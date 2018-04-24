@@ -1,0 +1,9 @@
+;vertical(-500,400;
+;vertical(0,900;horizontal(-400,400;
+*jump(10,700;
+;horizontal(100,300;
+;vertical(-500,400;
+;vertical(0,900;
+*jump(10,700;
+;horizontal(100,300;
+;vertical(-300,600;

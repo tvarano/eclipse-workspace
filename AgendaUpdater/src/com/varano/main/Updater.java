@@ -18,27 +18,52 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+/**
+ * A modular updater for applications running on java. Please look through code to make sure the application is 
+ * up to specification.
+ * <br><strong>Arguments ideally run as such</strong>, however are not necessary. This can be run without arguments. 
+ * <ul><li><code>-v</code> or <code>--verbose</code> allows for the logs to print. Put this argument first.</li>
+ * <li>Location of the application. This can come next and should be the entire path of the application. Spaces are 
+ * accounted for.
+ * @author Thomas Varano
+ *
+ */
 public class Updater {
    
-   private static String home = System.getProperty("user.home");
-   
-   private static final String CFG_VERSION_KEY = "app.version=";
-   
-   private static final String CFG_JAR_KEY = "app.mainjar=";
-   
-   private static final String INFO_VERSION_KEY_A = "CFBundleShortVersionString";
-
-   private static final String INFO_VERSION_KEY_B = "CFBundleVersion";
-
+   /**
+    * Name of the app.
+    */
    private static final String APP_NAME = "Agenda";
+  
+   /**
+    * version of the app.
+    */
+   private static final String version = "1.8.2";
+
+   /**
+    * the main class with all package references. If using the default package, just put the class name.
+    * Replace dots with "_"
+    */
+   private static final String MAIN_CLASS = "com_varano_managers_Agenda";
    
+   
+   //--------------------DO NOT TOUCH THESE VARIABLES--------------------
+   private static String home = System.getProperty("user.home");   
+   private static final String CFG_VERSION_KEY = "app.version=";
+   private static final String CFG_PREFID_KEY = "app.preferences.id="; 
+   private static final String CFG_APPID_KEY = "app.identifier="; 
+   private static final String CFG_MAIN_CLASS_KEY = "app.mainclass="; 
+   private static final String CFG_JAR_KEY = "app.mainjar="; 
+   private static final String INFO_VERSION_KEY_A = "CFBundleShortVersionString";
+   private static final String INFO_VERSION_KEY_B = "CFBundleVersion";
    private static final String THIS_LOCATION = System.getProperty("java.class.path");
- 
-   private static final String version = "1.7.9";
+   private static final char sep = File.separatorChar;
+   
+   private static boolean verbose;
+   //--------------------------------------------------------------------
    
    private static String askHome() {
-      System.out.println("ask home");
+      log("ask home");
       JLabel userHome = new JLabel(Updater.home + "/");
       JLabel suffix = new JLabel("/"+APP_NAME + ".app");
       JTextField f = new JTextField();
@@ -49,19 +74,24 @@ public class Updater {
       return Updater.home + "/" + f.getText() + suffix.getText();
    }
    
+   /**
+    * XXX just for agenda... ignore this. or delete it.
+    */
    private static String otherVersion() {
-      System.out.println("ask version");
+      log("ask version");
       return "1.7.6";
    }
    
+   /**
+    * XXX just for agenda... ignore this. or delete it.
+    */
    private static String oldestVersion() {
-      System.out.println("ask oldest version");
+      log("ask oldest version");
       return "1.7.5";
    }
    
    /**
-    * hard coded. Update version every time
-    * @param args
+    * @param args if using internal update software, give the location of the app as an argument
     */
    public static void main(String[] args) {
       EventQueue.invokeLater(new Runnable() {
@@ -72,19 +102,22 @@ public class Updater {
       });
    }
    
+   /**
+    * complete update method. 
+    * @param args specified in the javadoc of the class.
+    */
    public static void update(String[] args) {
+      verbose = args.length == 0 ? false : args[0].equals("-v") || args[0].equals("--verbose");
       //Account for spaces in args
-      String argConcat = null;
-      if (args.length > 0) {
-         for (int i = 0; i < args.length; i++) {
-            if (i == 0)
-               argConcat+= args[i];
-            else argConcat+=" "+args[i];
-         }
+      int start = (verbose) ? 1 : 0;
+      String argConcat = "";
+      for (int i = start; i < args.length; i++) {
+         if (i == start) argConcat += args[i];
+         else argConcat += " " + args[i];
       }
-      
-      //Quit Agenda
-      String newJarName = "Agenda.jar";
+
+      // Quit Application
+      String newJarName = APP_NAME + ".jar";
       boolean appWasRunning;
       try {
          Process quit = new ProcessBuilder("killall", APP_NAME).start();
@@ -93,30 +126,34 @@ public class Updater {
          e1.printStackTrace();
          appWasRunning = false;
       }
-      System.out.println("running: "+appWasRunning);
+      log("running: "+appWasRunning);
       
+      //find the location of the application
       String home;
-      if (argConcat == null) {
-         home = "/Applications/Agenda.app";
-            home = Updater.home+ "/Desktop/Agenda.app";
+      if (argConcat == "") {
+         home = "/Applications/" + APP_NAME + ".app";
       } else home = argConcat;
-      if (!new File(home).isDirectory())
-         home = askHome();
-      System.out.println("home: "+home);
+      log("home given: "+home);
+      if (!new File(home).canExecute()) {
+         if (!new File(home).canExecute()) 
+            home = askHome();
+      }
+      home = Updater.home+ "/Desktop/" + APP_NAME + ".app";
+      log("home accepted as: "+home);
       String javaHome = home + "/Contents/Java/";
       String dest = javaHome + APP_NAME + ".jar";
       
-      
       //delete old jar
       boolean removed = new File(dest).delete();
+      //XXX this is custom. you don't have to do this for new programs.
       if (!removed) {
          //account for old program, where the jar was Agenda-1.7.6.jar
-         System.out.println("Agenda-"+otherVersion()+".jar");
+         log("Agenda-"+otherVersion()+".jar");
          if (!new File(javaHome + "Agenda-"+otherVersion()+".jar").delete())
             //also account for 1.7.5
             if (!new File(javaHome + "Agenda-"+oldestVersion()+".jar").delete()) {        
                showFailure("Error removing old jar at\n"+javaHome + "Agenda-"+otherVersion()+".jar");
-               System.exit(0);
+               System.exit(1);
             }
       }
       
@@ -124,26 +161,32 @@ public class Updater {
       try {
          transfer(dest);
       } catch (IOException e) {
-         System.err.println("attempt to copy failed");
+         log("attempt to copy failed");
          showFailure("Error Copying Files to "+dest);
          System.exit(1);
       }
       
-      //change references in Agenda.cfg
+      //change references in cfg
       try {
          String cfg = "";
-         Scanner in = new Scanner(new File(javaHome + "Agenda.cfg"));
+         Scanner in = new Scanner(new File(javaHome + APP_NAME + ".cfg"));
          while (in.hasNextLine())
             cfg += in.nextLine() + "\n";
          in.close();
-         BufferedWriter bw = new BufferedWriter(new FileWriter(new File(javaHome + "Agenda.cfg")));
+         BufferedWriter bw = new BufferedWriter(new FileWriter(new File(javaHome + APP_NAME + ".cfg")));
          in = new Scanner(cfg);
          while (in.hasNextLine()) {
             String ln = in.nextLine();
             if (ln.contains(CFG_VERSION_KEY))
-               ln = ln.substring(0, ln.indexOf('=') + 1) + version;
+               ln = CFG_VERSION_KEY + version;
             else if (ln.contains(CFG_JAR_KEY))
-               ln = ln.substring(0, ln.indexOf('=') + 1) + newJarName;
+               ln = CFG_JAR_KEY + newJarName;
+            else if (ln.contains(CFG_PREFID_KEY)) 
+               ln = CFG_PREFID_KEY + MAIN_CLASS.replace('_', sep);
+            else if (ln.contains(CFG_APPID_KEY))
+               ln = CFG_APPID_KEY + MAIN_CLASS.replace('_', '.');
+            else if (ln.contains(CFG_MAIN_CLASS_KEY))
+               ln = CFG_MAIN_CLASS_KEY + MAIN_CLASS.replace('_', sep);
             bw.write(ln + "\n");
          }
          bw.close();
@@ -178,6 +221,7 @@ public class Updater {
       }
       
       //show the welcome screen upon open
+      //again, only for agenda. delete this if using another app.
       try {
          writeWelcomeTrue(home + "/Contents/Resources/Internal/InternalData/");
       } catch (IOException e1) {
@@ -187,9 +231,11 @@ public class Updater {
       //if app was running, open a new instance
       if (appWasRunning) {
          try {
+            //wait for processes to complete. Sometimes it doesn't work
+            Thread.sleep(500);
             Process restart = new ProcessBuilder("open", home).start();
-            System.out.println("opening..." + home);
-            System.out.println("restart: " + restart.waitFor());
+            log("opening..." + home);
+            log("restart: " + restart.waitFor());
          } catch (IOException | InterruptedException e) {
             e.printStackTrace();
          }
@@ -199,11 +245,12 @@ public class Updater {
       if (THIS_LOCATION.contains(".jar")) {
          try {
             Process delete = new ProcessBuilder("rm", THIS_LOCATION).start();
-            System.out.println("delete: " + delete.waitFor());
+            log("delete: " + delete.waitFor());
          } catch (IOException | InterruptedException e) {
             e.printStackTrace();
          }
       }
+      System.out.println("Process Complete.");
       System.exit(0);
    }
    
@@ -216,17 +263,22 @@ public class Updater {
       }
    }
    
+   /**
+    * when updating, show the user the welcome screen upon reopening. 
+    * @param dir
+    * @throws IOException
+    */
    public static void writeWelcomeTrue(String dir) throws IOException {
       new File(dir).mkdirs();
       BufferedWriter bw = new BufferedWriter(new FileWriter(dir + "showWelcome.txt"));
-      System.out.println("welcome file: "+dir + "showWelcome.txt");
+      log("welcome file: "+dir + "showWelcome.txt");
       bw.write("t");
       bw.close(); 
    }
    
    private static void showFailure(String reason) {
-      JOptionPane.showMessageDialog(null, "Unable to update Agenda.\n"
-            + reason + "\nPlease try again.", "Agenda Updater", JOptionPane.ERROR_MESSAGE, null);
+      JOptionPane.showMessageDialog(null, "Unable to update " + APP_NAME + ".\n"
+            + reason + "\nPlease try again.", APP_NAME + "Updater", JOptionPane.ERROR_MESSAGE, null);
    }
    private static void transfer(String dest) throws IOException {
       copyFileUsingStream(Updater.class.getResourceAsStream("src.jar"), new File(dest));
@@ -234,8 +286,8 @@ public class Updater {
    
    private static void copyFileUsingStream(InputStream source, File dest) throws IOException {
       OutputStream os = null;
-      System.out.println("copying from: " + source);
-      System.out.println("to: " + dest);
+      log("copying from: " + source);
+      log("to: " + dest);
       try {
           os = new FileOutputStream(dest);
           byte[] buffer = new byte[1024];
@@ -248,4 +300,8 @@ public class Updater {
           os.close();
       }
   }
+   
+   private static void log(String s) {
+      if (verbose) System.out.println(s);
+   }
 }

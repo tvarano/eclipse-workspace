@@ -223,6 +223,7 @@ public class SpriteOne {
 	   }
 	   
 	   public boolean checkCollision(Rectangle r){
+	      if (r == null) return false;
 		   return (getBounds().intersects(r));
 	   }
 

@@ -24,7 +24,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
-public class Jumping extends JPanel implements MouseListener, MouseMotionListener, KeyListener, ActionListener
+public class Flappy extends JPanel implements MouseListener, MouseMotionListener, KeyListener, ActionListener
 {
    private static final long serialVersionUID = 1L;
    private static final int PREF_W = 1000;
@@ -43,7 +43,7 @@ public class Jumping extends JPanel implements MouseListener, MouseMotionListene
    private Font font2 = new Font("Prestige Elite Std", Font.BOLD, 50);
    private PlayerJump sprite;
 
-   public Jumping() 
+   public Flappy() 
    {
       initGame = false;
       cityx = 0;
@@ -55,7 +55,7 @@ public class Jumping extends JPanel implements MouseListener, MouseMotionListene
          pipe1.setVelocity(4);
       pipe2 = new Pipes(PREF_W+500,Pipes.randHeight(),175);
          pipe2.setVelocity(4);
-         System.out.println(pipe1.getY()+","+pipe1.getY1());
+//         System.out.println(pipe1.getY()+","+pipe1.getY1());
       sprite = new PlayerJump(200,450,70,70);
          sprite.setGravity(1);
          sprite.setJumpForce(11);
@@ -119,7 +119,7 @@ public class Jumping extends JPanel implements MouseListener, MouseMotionListene
    private static void createAndShowGUI() {
       JFrame frame = new JFrame("Flappy Bird");
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      frame.getContentPane().add(new Jumping());
+      frame.getContentPane().add(new Flappy());
       frame.pack();
       frame.setLocationRelativeTo(null);
       frame.setVisible(true);
@@ -252,7 +252,7 @@ public class Jumping extends JPanel implements MouseListener, MouseMotionListene
          pipe1.reset(PREF_W);
          pipe2.reset(PREF_W);
       }
-      System.out.println(ground1X+","+ground2X);
+//      System.out.println(ground1X+","+ground2X);
    }
 
    @Override

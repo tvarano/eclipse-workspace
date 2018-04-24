@@ -6,27 +6,27 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Clear Sch" key="selection"/>
+		<item value="NO_SC" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="no_sc"/>
+			<item value="mr"/>
+			<item value="out"/>
+			<item value="jop"/>
+			<item value="depreca"/>
+			<item value="deprec"/>
+			<item value="bufferedw"/>
+			<item value="buffere"/>
+			<item value="select class"/>
+			<item value="email"/>
 			<item value="clear sch"/>
 			<item value="rewr"/>
 			<item value="rew"/>
 			<item value="showpref"/>
 			<item value="247"/>
-			<item value="no_"/>
-			<item value="no"/>
-			<item value="no_teac"/>
-			<item value="rotationco"/>
-			<item value="rot"/>
-			<item value="lunch"/>
-			<item value="selected"/>
-			<item value="selec"/>
-			<item value="cansh"/>
-			<item value="rotation"/>
 		</list>
 		<list key="replacehistory">
 			<item value=" c "/>
