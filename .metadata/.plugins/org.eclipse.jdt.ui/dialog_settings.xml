@@ -23,7 +23,7 @@
 	<item value="1037" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_width"/>
 	<item value="825" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_height"/>
 	<item value="/Users/varanoth/git/agenda/Schedule/bin/com/varano/resources/libs" key="org.eclipse.jdt.ui.lastextjar"/>
-	<item value="/Users/varanoth/Desktop/Java Files/Referenced Libraries (jar:zip)/twitter4j-core" key="org.eclipse.jdt.ui.last.external.project"/>
+	<item value="/Users/varanoth/git/chess" key="org.eclipse.jdt.ui.last.external.project"/>
 	<item value="2" key="org.eclipse.jdt.ui.last.selected.jre.kind2"/>
 	<list key="SearchScopeActionGroup.working_set">
 	</list>
@@ -66,10 +66,13 @@
 	<section name="FatJarPackageWizard">
 		<item value="/Users/varanoth/Documents/workspace" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
 		<item value="Agenda - agenda" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="/Users/varanoth/Desktop/Update/src.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="/Users/varanoth/Desktop/Updater/src.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="/Users/varanoth/Desktop/Updater/src.jar"/>
+			<item value="/Users/varanoth/Desktop/argsTest.jar"/>
+			<item value="/Users/varanoth/Desktop/argTest.jar"/>
 			<item value="/Users/varanoth/Desktop/Update/src.jar"/>
 			<item value="/Users/varanoth/Desktop/Update/updater-src.jar"/>
 			<item value="/Users/varanoth/Desktop/Update/testExpCP.jar"/>
@@ -87,9 +90,6 @@
 			<item value="/Users/varanoth/Desktop/PathTest.jar"/>
 			<item value="/Users/varanoth/Desktop/Restarter/Restarter.jar"/>
 			<item value="/Users/varanoth/Desktop/Java Files/Java EXEs/Restarter.jar"/>
-			<item value="/Users/varanoth/Desktop/Java Files/Restarter.jar"/>
-			<item value="/Users/varanoth/Desktop/Java Files/Agenda-1.7.4.jar"/>
-			<item value="/Users/varanoth/Desktop/Java Files/AgendaPH.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
 			<item value="/Users/varanoth/Documents/workspace.xml"/>
@@ -253,7 +253,7 @@
 		<item value="11" key="INCLUDE_MASK"/>
 	</section>
 	<section name="BuildPathsPropertyPage">
-		<item value="2" key="pageIndex"/>
+		<item value="3" key="pageIndex"/>
 	</section>
 	<section name="NewPackageWizardPage">
 		<item value="false" key="create_package_info_java"/>

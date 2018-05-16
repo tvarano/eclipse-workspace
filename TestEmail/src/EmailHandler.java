@@ -30,7 +30,8 @@ public class EmailHandler
          message.setText("Hello, this is example of sending email  ");  
   
          // Send message  
-         Transport.send(message);  
+         Transport.send(message); 
+         
          System.out.println("message sent successfully....");  
   
       }catch (MessagingException mex) {mex.printStackTrace();}  

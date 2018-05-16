@@ -21,7 +21,7 @@ public class Sprite {
 
    public void draw(Graphics2D g2) {
       g2.setColor(Color.YELLOW);
-      g2.fill(getBounds());
+      g2.fill(getBounds().getBounds());
    }
    
    public boolean collide(PipeManager pm) {
@@ -33,7 +33,9 @@ public class Sprite {
    
    public void update() {
       dy += gravity;
-      y += dy;
+      if (y < FlappyBird.PREF_H - height)
+         y += dy;
+      else setY(FlappyBird.PREF_H - height);
    }
 
    
@@ -66,6 +68,7 @@ public class Sprite {
    }
 
    public void setY(double y) {
+      System.out.println(y);
       this.y = y;
    }
 

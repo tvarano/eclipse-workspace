@@ -5,6 +5,8 @@ import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
+import javax.mail.event.ConnectionEvent;
+import javax.mail.event.ConnectionListener;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
@@ -34,6 +36,27 @@ public class GmailHandler {
             });
       // compose message
       long start = 0;
+      try {
+         session.getTransport("smtp").addConnectionListener(new ConnectionListener() {
+            @Override
+            public void closed(ConnectionEvent arg0) {
+               System.out.println("close" + arg0.getSource()); 
+            }
+            @Override
+            public void disconnected(ConnectionEvent arg0) {
+               System.out.println("disc" + arg0.getSource()); 
+            }
+
+            @Override
+            public void opened(ConnectionEvent arg0) {
+               System.out.println("open" + arg0.getSource()); 
+            }
+            
+         });
+         System.out.println("IT IS GOOD");
+      } catch (MessagingException e1) {
+         e1.printStackTrace();
+      }
       try {
          MimeMessage message = new MimeMessage(session);
          message.addRecipient(Message.RecipientType.TO,
@@ -127,7 +150,6 @@ public class GmailHandler {
       Properties props = getProps("imap"); 
       
       Session auth = getAuth(props, from, password);
-      
       try {
          sendMessage(getMessage(auth, to, sub, msg));
       } catch (MessagingException e) {
@@ -136,7 +158,7 @@ public class GmailHandler {
    }
    
    public static void main(String[] args) {
-      sendIMAP("pascackagendamailer@gmail.com", "AlphaOmega123", "pascackagendamailer@gmail.com", "Agenda Test",
+      send("pascackagendamailer@gmail.com", "AlphaOmega123", "pascackagendamailer@gmail.com", "Agenda Test",
             "private server config");
    }
 }

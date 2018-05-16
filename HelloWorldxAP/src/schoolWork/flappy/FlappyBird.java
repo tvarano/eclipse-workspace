@@ -19,12 +19,13 @@ public class FlappyBird extends JPanel implements KeyListener
 {
    private static final long serialVersionUID = 1L;
    public static final int PREF_W = 600;
-   public static final int PREF_H = 900;
+   public static final int PREF_H = 800;
    private static final int DELAY = 10;
    private RenderingHints hints = new RenderingHints(RenderingHints.KEY_ANTIALIASING,
                                                                 RenderingHints.VALUE_ANTIALIAS_ON);
    private Sprite player;
    private PipeManager pm;
+   private boolean endGame;
    
    public FlappyBird() {
       addKeyListener(this);
@@ -58,20 +59,31 @@ public class FlappyBird extends JPanel implements KeyListener
 
    public void update() {
       player.update();
-      pm.update();
+      if (!endGame)
+         pm.update();
+      if (collision())
+         endGame = true;
       
    }
 
    public boolean collision() {
-      
        return player.collide(pm);
+   }
+   
+   public void restart() {
+      
    }
    
    @Override
    public void keyPressed(KeyEvent e) {
       int key = e.getKeyCode();
       if(key == KeyEvent.VK_SPACE)
-         player.jump();
+         if (endGame)
+            return;
+         else player.jump();
+      else if (endGame)
+         if (key == KeyEvent.VK_ENTER)
+            restart();
    }
 
    @Override
