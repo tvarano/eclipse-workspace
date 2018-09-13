@@ -103,6 +103,7 @@ public class Tetris extends JPanel
       String text =
             "Up to rotate. Down to speed up. Enter to hold. Space to drop. ESC to pause.";
       pane.setText(text);
+      pane.setFocusable(false);
       pane.setBackground(new Color(0,0,0,0));
       pane.setForeground(getForeground());
       pane.setFont(smallFont);
@@ -139,9 +140,9 @@ public class Tetris extends JPanel
             }
          }
          
-//         g2.setColor(Color.GREEN);
 //         for (Location[] lArray : grid){
 //            for (Location l : lArray){
+//               g2.setColor(l.isFull() ? Color.RED : Color.green);
 //               g2.drawRect(l.getX(), l.getY(), l.getDistanceInGrid(), l.getDistanceInGrid());
 //            }
 //         }

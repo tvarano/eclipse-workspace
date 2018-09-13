@@ -5,8 +5,8 @@ package schoolWork.recursion;
 
 public class Ackermann {
    public static long ackermann(long m, long n) {
-//      if (n >= 4 && m >= 4)
-//         throw new StackOverflowError("inputs too large for program");
+      if (n >= 4 && m >= 4)
+         throw new StackOverflowError("inputs too large for program");
       if (m == 0) {
          return n + 1;
       } else if (m > 0 && n == 0) {
@@ -17,6 +17,6 @@ public class Ackermann {
    }
    
    public static void main(String[] args) {
-      System.out.println(ackermann(3,4));
+      System.out.println(ackermann(5,4));
    }
 }

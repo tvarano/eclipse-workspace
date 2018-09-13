@@ -14,7 +14,7 @@ public class ReadHtml {
    public static void main(String[] args) {
 //      setLog();
       try {
-         System.out.println(readHtml(new URL("https://students.pascack.k12.nj.us/genesis/parents?tab1=studentdata&tab2=studentsummary&studentid=808219&action=form")));
+         System.out.println(readHtml(new URL("https://tvarano54.github.io/agenda/data/rotations/noraml.txt")));
       } catch (IOException e) {
          e.printStackTrace();
       }

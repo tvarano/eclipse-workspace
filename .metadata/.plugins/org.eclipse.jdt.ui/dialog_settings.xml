@@ -12,7 +12,7 @@
 	<item value="1" key="org.eclipse.jdt.uiformatter_page.line_wrapping_tab_page.last_category_index"/>
 	<item value="1" key="org.eclipse.jdt.uiformatter_page.white_space.java_view.inner"/>
 	<item value="3" key="CallHierarchyViewPart.orientation"/>
-	<item value="5" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.last_focus"/>
+	<item value="0" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.last_focus"/>
 	<item value="JavaSE-9" key="org.eclipse.jdt.ui.last.selected.execution.enviroment"/>
 	<item value="3" key="TypeHierarchyViewPart.orientation"/>
 	<item value="258" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_x"/>
@@ -23,7 +23,7 @@
 	<item value="1037" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_width"/>
 	<item value="825" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_height"/>
 	<item value="/Users/varanoth/git/agenda/Schedule/bin/com/varano/resources/libs" key="org.eclipse.jdt.ui.lastextjar"/>
-	<item value="/Users/varanoth/git/chess" key="org.eclipse.jdt.ui.last.external.project"/>
+	<item value="/Users/varanoth/git/bloons" key="org.eclipse.jdt.ui.last.external.project"/>
 	<item value="2" key="org.eclipse.jdt.ui.last.selected.jre.kind2"/>
 	<list key="SearchScopeActionGroup.working_set">
 	</list>
@@ -66,15 +66,17 @@
 	<section name="FatJarPackageWizard">
 		<item value="/Users/varanoth/Documents/workspace" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
 		<item value="Agenda - agenda" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="/Users/varanoth/Desktop/Updater/src.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="/Users/varanoth/Desktop/Update/src.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="/Users/varanoth/Desktop/Update/src.jar"/>
+			<item value="/Users/varanoth/Desktop/Update/update-src.jar"/>
+			<item value="/Users/varanoth/Desktop/Update/testSrc.jar"/>
+			<item value="/Users/varanoth/Desktop/Update/updater-src.jar"/>
 			<item value="/Users/varanoth/Desktop/Updater/src.jar"/>
 			<item value="/Users/varanoth/Desktop/argsTest.jar"/>
 			<item value="/Users/varanoth/Desktop/argTest.jar"/>
-			<item value="/Users/varanoth/Desktop/Update/src.jar"/>
-			<item value="/Users/varanoth/Desktop/Update/updater-src.jar"/>
 			<item value="/Users/varanoth/Desktop/Update/testExpCP.jar"/>
 			<item value="/Users/varanoth/Desktop/Update/emailer.jar"/>
 			<item value="/Users/varanoth/Desktop/Update/Updater.jar"/>
@@ -88,8 +90,6 @@
 			<item value="/Users/varanoth/Desktop/Java Files/Java EXEs/Agenda-Restarter.jar"/>
 			<item value="/Users/varanoth/Desktop/Agenda-Restarter.jar"/>
 			<item value="/Users/varanoth/Desktop/PathTest.jar"/>
-			<item value="/Users/varanoth/Desktop/Restarter/Restarter.jar"/>
-			<item value="/Users/varanoth/Desktop/Java Files/Java EXEs/Restarter.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
 			<item value="/Users/varanoth/Documents/workspace.xml"/>
@@ -219,8 +219,8 @@
 		<item value="519" key="DIALOG_WIDTH"/>
 		<item value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont" key="DIALOG_FONT_NAME"/>
 		<item value="639" key="DIALOG_HEIGHT"/>
-		<item value="598" key="DIALOG_X_ORIGIN"/>
-		<item value="53" key="DIALOG_Y_ORIGIN"/>
+		<item value="654" key="DIALOG_X_ORIGIN"/>
+		<item value="186" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="RefactoringWizard.preview">
 		<item value="600" key="width"/>

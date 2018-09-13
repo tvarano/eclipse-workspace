@@ -38,7 +38,7 @@ public class Updater {
    /**
     * version of the app.
     */
-   private static final String version = "1.8.3";
+   private static final String version = "1.8.5";
 
    /**
     * the main class with all package references. If using the default package, just put the class name.
@@ -108,6 +108,8 @@ public class Updater {
     */
    public static void update(String[] args) {
       verbose = args.length == 0 ? false : args[0].equals("-v") || args[0].equals("--verbose");
+      //TODO 
+      verbose = true;
       //Account for spaces in args
       int start = (verbose) ? 1 : 0;
       String argConcat = "";
@@ -139,6 +141,7 @@ public class Updater {
          if (!new File(home).canExecute()) 
             home = askHome();
       }
+//      home = "/Users/varanoth/Desktop/Test/Agenda.app";
       log("home accepted as: "+home);
       String javaHome = home + "/Contents/Java/";
       String dest = javaHome + APP_NAME + ".jar";

@@ -21,7 +21,7 @@ public class Sprite {
 
    public void draw(Graphics2D g2) {
       g2.setColor(Color.YELLOW);
-      g2.fill(getBounds().getBounds());
+      g2.fill(getBounds());
    }
    
    public boolean collide(PipeManager pm) {
