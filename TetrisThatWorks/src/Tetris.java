@@ -108,6 +108,7 @@ public class Tetris extends JPanel
       pane.setForeground(getForeground());
       pane.setFont(smallFont);
       pane.setEditable(false);
+      pane.setFocusable(false);
       timer.start();
    }
 

@@ -49,7 +49,43 @@ public class TicTacToe extends JPanel implements ActionListener {
 		updateBoard();
 	}
 	
+	private boolean checkRow(int row) {
+		for (int i = 1; i < buttons[row].length; i++)
+			if (buttons[row][i].getText() == NONE || !buttons[row][i].getText().equals(buttons[row][i-1].getText()))
+				return false;
+		return true;
+	}
+	
+	private boolean checkCol(int col) {
+		for (int i = 1; i < buttons.length; i++)
+			if (buttons[i][col].getText() == NONE || !buttons[i][col].getText().equals(buttons[i-1][col].getText()))
+				return false;
+		return true;
+	}
+	
+	private boolean checkDiagOne() {
+		for (int i = 1; i < buttons.length; i++)
+			if (buttons[i][i].getText() == NONE || !buttons[i][i].getText().equals(buttons[i-1][i-1].getText()))
+				return false;
+		return true;
+	}
+	
+	private boolean checkDiagTwo() {
+		for (int i = 1; i < buttons.length; i++)
+			if (buttons[i][i].getText() == NONE || !buttons[i][i].getText().equals(buttons[i-1][i+1].getText()))
+				return false;
+		return true;
+	}
+	
+	public boolean checkWinner() {
+		for (int i = 0; i < buttons.length; i++)
+			if (checkRow(i) || checkCol(i)) return true;
+		
+		return checkDiagOne() || checkDiagTwo();
+	}
+	
 	public void updateBoard() {
+		if (checkWinner()) System.out.println("WINNER WINNNER");
 		for (int row = 0; row < buttons.length; row++)
 			for (int col = 0; col < buttons[row].length; col++) {
 				board[row][col] = (buttons[row][col].getText());

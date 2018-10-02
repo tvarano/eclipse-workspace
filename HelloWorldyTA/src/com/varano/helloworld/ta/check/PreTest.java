@@ -3,9 +3,15 @@
 
 package com.varano.helloworld.ta.check;
 
+import javax.swing.JOptionPane;
+
+
 public class PreTest {
 	public static void main(String[] args) {
-		System.out.println(check());
+		System.out.println(JOptionPane.showOptionDialog(null, "Do you want to save?",
+            "SAV", JOptionPane.YES_NO_OPTION,
+            JOptionPane.WARNING_MESSAGE, null,
+            null, null));
 	}
 	
 	public static int myst(int x) {

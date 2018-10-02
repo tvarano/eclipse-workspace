@@ -38,7 +38,7 @@ public class Updater {
    /**
     * version of the app.
     */
-   private static final String version = "1.8.5";
+   private static final String version = "1.8.7";
 
    /**
     * the main class with all package references. If using the default package, just put the class name.
@@ -141,7 +141,7 @@ public class Updater {
          if (!new File(home).canExecute()) 
             home = askHome();
       }
-//      home = "/Users/varanoth/Desktop/Test/Agenda.app";
+//      home = "/Users/varanoth/Desktop/Agenda.app";
       log("home accepted as: "+home);
       String javaHome = home + "/Contents/Java/";
       String dest = javaHome + APP_NAME + ".jar";

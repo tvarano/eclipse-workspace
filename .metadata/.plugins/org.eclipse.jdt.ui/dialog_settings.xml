@@ -66,14 +66,17 @@
 	<section name="FatJarPackageWizard">
 		<item value="/Users/varanoth/Documents/workspace" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
 		<item value="Agenda - agenda" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="/Users/varanoth/Desktop/Update/src.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="/Users/varanoth/Desktop/Export/src.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="/Users/varanoth/Desktop/Export/src.jar"/>
+			<item value="/Users/varanoth/git/agenda/docs/data/updates/updater-src.jar"/>
+			<item value="/Users/varanoth/Desktop/notifShow.jar"/>
+			<item value="/Users/varanoth/Desktop/Update/updater-src.jar"/>
 			<item value="/Users/varanoth/Desktop/Update/src.jar"/>
 			<item value="/Users/varanoth/Desktop/Update/update-src.jar"/>
 			<item value="/Users/varanoth/Desktop/Update/testSrc.jar"/>
-			<item value="/Users/varanoth/Desktop/Update/updater-src.jar"/>
 			<item value="/Users/varanoth/Desktop/Updater/src.jar"/>
 			<item value="/Users/varanoth/Desktop/argsTest.jar"/>
 			<item value="/Users/varanoth/Desktop/argTest.jar"/>
@@ -87,9 +90,6 @@
 			<item value="/Users/varanoth/Desktop/Agenda-1.7.6/Agenda-1.7.6.1.jar"/>
 			<item value="/Users/varanoth/Desktop/Agenda-1.7.6/Agenda-1.7.6.jar"/>
 			<item value="/Users/varanoth/Desktop/Agenda-1.7.5/Agenda-1.7.5.jar"/>
-			<item value="/Users/varanoth/Desktop/Java Files/Java EXEs/Agenda-Restarter.jar"/>
-			<item value="/Users/varanoth/Desktop/Agenda-Restarter.jar"/>
-			<item value="/Users/varanoth/Desktop/PathTest.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
 			<item value="/Users/varanoth/Documents/workspace.xml"/>
@@ -115,6 +115,8 @@
 	<section name="RenameInformationPopup">
 	</section>
 	<section name="completion_proposal_size">
+		<item value="215" key="size.y"/>
+		<item value="272" key="size.x"/>
 	</section>
 	<section name="JarPackageWizard">
 		<item value="true" key="JarPackageWizardPage.INCLUDE_DIRECTORY_ENTRIES"/>

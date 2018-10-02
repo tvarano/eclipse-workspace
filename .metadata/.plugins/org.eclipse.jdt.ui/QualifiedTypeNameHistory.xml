@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="sun.tools.tree.Context"/>
     <fullyQualifiedTypeName name="java.util.Formatter"/>
     <fullyQualifiedTypeName name="com.varano.main.resources.Resources"/>
     <fullyQualifiedTypeName name="javax.swing.JFrame"/>
@@ -17,7 +16,6 @@
     <fullyQualifiedTypeName name="com.varano.ui.input.DataInputSlot"/>
     <fullyQualifiedTypeName name="javax.swing.BorderFactory"/>
     <fullyQualifiedTypeName name="com.varano.chess.game.pieces.PieceConstants"/>
-    <fullyQualifiedTypeName name="java.awt.EventQueue"/>
     <fullyQualifiedTypeName name="com.varano.chess.game.ChessConstants"/>
     <fullyQualifiedTypeName name="com.varano.chess.game.Space"/>
     <fullyQualifiedTypeName name="com.varano.chess.ui.UIHandler"/>
@@ -26,7 +24,6 @@
     <fullyQualifiedTypeName name="com.varano.chess.information.ErrorHandler"/>
     <fullyQualifiedTypeName name="java.io.OutputStream"/>
     <fullyQualifiedTypeName name="java.io.File"/>
-    <fullyQualifiedTypeName name="java.lang.ProcessBuilder"/>
     <fullyQualifiedTypeName name="java.awt.Graphics"/>
     <fullyQualifiedTypeName name="com.varano.chess.game.pieces.Piece"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
@@ -37,7 +34,6 @@
     <fullyQualifiedTypeName name="java.util.logging.Filter"/>
     <fullyQualifiedTypeName name="personal.logger.BasicLogManager"/>
     <fullyQualifiedTypeName name="jdk.internal.reflect.Reflection"/>
-    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="com.sun.tools.sjavac.Log"/>
     <fullyQualifiedTypeName name="com.sun.tools.sjavac.Log.Level"/>
     <fullyQualifiedTypeName name="com.varano.chess.information.logging.LogManager"/>
@@ -60,4 +56,8 @@
     <fullyQualifiedTypeName name="javax.activation.DataSource"/>
     <fullyQualifiedTypeName name="com.varano.resources.ioFunctions.ErrorReport"/>
     <fullyQualifiedTypeName name="com.varano.managers.FileHandler"/>
+    <fullyQualifiedTypeName name="java.awt.EventQueue"/>
+    <fullyQualifiedTypeName name="java.lang.ProcessBuilder"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="com.varano.ui.display.DisplayMain"/>
 </qualifiedTypeNameHistroy>
