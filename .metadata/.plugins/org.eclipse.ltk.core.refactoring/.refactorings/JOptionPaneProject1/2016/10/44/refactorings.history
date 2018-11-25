@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move element &apos;gifart1.gif&apos; to &apos;mehoy.jpg&apos;&#x0A;- Original project: &apos;JOptionPaneProject1&apos;&#x0A;- Destination element: &apos;mehoy.jpg&apos;&#x0A;- Original element: &apos;gifart1.gif&apos;&#x0A;- Update references to refactored element" description="Move file" element1="src/gifart1.gif" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1477578000972" target="/HelloWorld/src/mehoy.jpg" units="0" version="1.0"/>
-</session>

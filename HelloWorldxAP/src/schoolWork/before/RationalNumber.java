@@ -31,9 +31,8 @@ public class RationalNumber implements Comparable<RationalNumber>
       int denom = (int) Math.pow(10, decLen);
       int num = (int)(convDec * denom);
       num +=(int) decimal * denom;
-      RationalNumber r = new RationalNumber(num, denom).simplify();
-      
-      setNumerator(r.getNumerator()); setDenominator(r.getDenominator());
+      n = num; d = denom;
+      simplify();
    }
    public RationalNumber() {
       this(0,1);

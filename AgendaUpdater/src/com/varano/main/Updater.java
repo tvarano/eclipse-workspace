@@ -38,7 +38,7 @@ public class Updater {
    /**
     * version of the app.
     */
-   private static final String version = "1.8.7";
+   private static final String version = "1.9";
 
    /**
     * the main class with all package references. If using the default package, just put the class name.

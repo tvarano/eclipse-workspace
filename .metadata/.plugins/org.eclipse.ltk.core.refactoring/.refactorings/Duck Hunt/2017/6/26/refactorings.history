@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Encapsulate field &apos;Spawn.z&apos; in &apos;Spawn&apos;&#x0A;- Original project: &apos;Duck Hunt&apos;&#x0A;- Original element: &apos;Spawn.z&apos;&#x0A;- Getter method name: &apos;getZ&apos;&#x0A;- Setter method name: &apos;setZ&apos;&#x0A;- Field visibility: &apos;public&apos;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;z&apos;" flags="589830" getter="getZ" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;{Spawn.java[Spawn^z" insertion="4" setter="setZ" stamp="1498493006093" version="1.0" visibility="1"/>
-</session>

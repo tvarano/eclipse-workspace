@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename compilation unit &apos;TetrisBlocks.java&apos; to &apos;TetrisBlock.java&apos;&#x0A;- Original project: &apos;TetrisThatWorks&apos;&#x0A;- Original element: &apos;TetrisBlocks.java&apos;&#x0A;- Renamed element: &apos;TetrisBlock.java&apos;" description="Rename compilation unit &apos;TetrisBlocks.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;{TetrisBlocks.java" name="TetrisBlock.java" references="false" stamp="1487643960913" version="1.0"/>
-</session>
