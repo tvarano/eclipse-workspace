@@ -1,3 +1,17 @@
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.security.GeneralSecurityException;
+import java.util.Collections;
+import java.util.List;
+import java.util.Properties;
+
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
@@ -7,29 +21,11 @@ import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.api.client.util.Base64;
 import com.google.api.client.util.store.FileDataStoreFactory;
-import com.google.api.services.gmail.*;
-//import com.google.api.services.gmail.GmailScopes;
-//import com.google.api.services.gmail.model.Label;
+import com.google.api.services.gmail.Gmail;
+import com.google.api.services.gmail.GmailScopes;
 import com.google.api.services.gmail.model.Message;
-//import com.google.api.services.gmail.model.ListLabelsResponse;
-
-//import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;  
-
-import java.util.Base64;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.security.GeneralSecurityException;
-import java.util.Collections;
-import java.util.List;
-import java.util.Properties;
 
 public class GmailQuickstart {
     private static final String APPLICATION_NAME = "Gmail API Java Quickstart";
@@ -40,7 +36,7 @@ public class GmailQuickstart {
      * Global instance of the scopes required by this quickstart.
      * If modifying these scopes, delete your previously saved tokens/ folder.
      */
-    private static final List<String> SCOPES = Collections.singletonList(GmailScopes.GMAIL_COMPOSE, GmailScopes.GMAIL_SEND);
+    private static final List<String> SCOPES = Collections.singletonList(GmailScopes.GMAIL_SEND);
     private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
 
     /**
@@ -71,8 +67,8 @@ public class GmailQuickstart {
 
 		MimeMessage email = new MimeMessage(session);
 
-		email.setFrom(new InternetAddress(from));
-		email.addRecipient(javax.mail.Message.RecipientType.TO,
+//		email.setFrom(new InternetAddress(from));
+		email.addRecipient(javax.mail.Message.RecipientType.BCC,
 				new InternetAddress(to));
 		email.setSubject(subject);
 		email.setText(bodyText);
@@ -92,7 +88,7 @@ public class GmailQuickstart {
        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
        emailContent.writeTo(buffer);
        byte[] bytes = buffer.toByteArray();
-       String encodedEmail = Base64.getEncoder().encodeToString(bytes); //encodeBase64URLSafeString(bytes);
+       String encodedEmail = Base64.encodeBase64URLSafeString(bytes);
        Message message = new Message();
        message.setRaw(encodedEmail);
        return message;
@@ -130,21 +126,9 @@ public class GmailQuickstart {
                 .build();
 
         String user = "me";
-//        // Print the labels in the user's account.
-//        ListLabelsResponse listResponse = service.users().labels().list(user).execute();
-//        List<Label> labels = listResponse.getLabels();
-//        if (labels.isEmpty()) {
-//            System.out.println("No labels found.");
-//        } else {
-//            System.out.println("Labels:");
-//            for (Label label : labels) {
-//                System.out.printf("- %s\n", label.getName());
-//            }
-//        }
         
         // send a test email
         sendMessage(service, user,
-      		  createEmail("varanoth@pascack.org", "tvarano54@gmail.com", "subject header", "mail body"));
-        System.out.println("SENT?");
+      		  createEmail("recipient@yahoo.com", "sender@gmail.com", "subject header", "mail body"));
     }
 }

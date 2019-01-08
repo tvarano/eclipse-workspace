@@ -193,12 +193,20 @@ public class Pong extends JPanel implements MouseListener, MouseMotionListener, 
          else{
             ball.setDx(4);
          }
+         ball.setDy(ball.getDx());
       } else if (ball.isCollideWest()) {
          scoreL++;
          ball.setX(500);
          ball.setY(500);
-         ball.setDy(0);
-         ball.setDx(-2);
+//         ball.setDy(-2);
+//         ball.setDx(-2);
+         if (difficulty == 1){
+         	ball.setDx(-2);
+         } 
+         else{
+         	ball.setDx(-4);
+         }
+         ball.setDy(ball.getDx());
       }
       if (scoreL == maxScore || scoreR == maxScore) {
          gameOver = true;

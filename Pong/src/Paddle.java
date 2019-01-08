@@ -57,6 +57,15 @@ public class Paddle
    }
    
    public void collide(PongBall ball){
+   	int middle = x + (width / 2);
+   	if (ball.getBounds().intersects(getBounds())) {
+   		ball.setDx(-ball.getDx());
+   	if (ball.getX() < middle)
+   		ball.setX(x - 1 - ball.getWidth());
+   	else if (ball.getX() > middle)
+   		ball.setX(x + width + 1);
+   	}
+   	/*
       int section1 = height/5;
       int section2 = height/5*2;
       int section3 = height/5*3;
@@ -92,6 +101,7 @@ public class Paddle
          System.out.println("ERROR");
          }
       }
+   	 */
    }
 
    public void draw(Graphics2D g2){

@@ -8,5 +8,7 @@ import java.io.File;
 public class Separators {
    public static void main(String[] args) {
       System.out.println(File.separatorChar);
+      System.getProperties().list(System.out);
+
    }
 }

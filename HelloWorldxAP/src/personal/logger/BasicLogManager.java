@@ -3,7 +3,6 @@
 
 package personal.logger;
 
-import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.logging.Filter;
 import java.util.logging.Level;

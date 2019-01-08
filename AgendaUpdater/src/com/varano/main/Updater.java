@@ -48,7 +48,7 @@ public class Updater {
    
    
    //--------------------DO NOT TOUCH THESE VARIABLES--------------------
-   private static String home = System.getProperty("user.home");   
+   private static final String home = System.getProperty("user.home");   
    private static final String CFG_VERSION_KEY = "app.version=";
    private static final String CFG_PREFID_KEY = "app.preferences.id="; 
    private static final String CFG_APPID_KEY = "app.identifier="; 
@@ -118,7 +118,7 @@ public class Updater {
          else argConcat += " " + args[i];
       }
 
-      // Quit Application
+      // Quit Application 
       String newJarName = APP_NAME + ".jar";
       boolean appWasRunning;
       try {
